@@ -1,0 +1,91 @@
+@import "breakpoint";
+@import "compass";
+@import "compass/reset";
+
+// breakpoints
+$breakpoint--mobile-only: max-width 699px;
+$breakpoint--medium     : min-width 700px;
+$breakpoint--large      : min-width 960px;
+$breakpoint--max        : min-width 1301px;
+$breakpoint--retina     : min-resolution 1.5dppx;
+
+// defaults
+$font-color--dark  : #333;
+$font-color--light : #fff;
+$background--light : #eee;
+$background--dark  : #222;
+
+// colors
+$blue  : #1f8de2;
+$green : #1fe27b;
+$red   : #e21f3f;
+
+// base unit
+$base        : 24px;
+$base--half  : $base / 2;
+$base--third : $base / 3;
+
+// fonts
+$font-size--xs : 10px;
+$font-size--sm : 12px;
+$font-size--md : 16px;
+$font-size--lg : 24px;
+$font-size--xl : 32px;
+
+p {
+  margin-bottom: 1em;
+}
+
+body {
+  font-family: Helvetica, sans-serif;
+  color: $font-color--dark;
+  background-color: $background--light;
+  padding: $base;
+}
+
+.heading {
+  margin-bottom: 0.618em;
+
+  &.-large {
+    font-size: $font-size--lg;
+    font-weight: bold;
+    line-height: $base * 3 / 2;
+
+    @include breakpoint($breakpoint--large) {
+      font-size: $font-size--xl;
+    }
+  }
+
+  &.-medium {
+    font-size: $font-size--md;
+    font-weight: normal;
+    line-height: $base;
+
+    @include breakpoint($breakpoint--large) {
+      font-size: $font-size--lg;
+    }
+  }
+
+  &.-small {
+    font-size: $font-size--sm;
+    font-weight: bold;
+    line-height: $base * 2 / 3;
+  }
+
+  &.-smallest {
+    font-size: $font-size--xs;
+    font-weight: bold;
+  }
+}
+
+h1 {
+  @extend .heading.-large;
+}
+
+h2 {
+  @extend .heading.-medium;
+}
+
+h3 {
+  @extend .heading.-small;
+}
