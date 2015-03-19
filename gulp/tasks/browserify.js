@@ -16,6 +16,7 @@ var handleErrors = require('../util/handleErrors');
 var browserSync  = require('browser-sync');
 var debowerify   = require('debowerify');
 var ngAnnotate   = require('browserify-ngannotate');
+var envify       = require('envify/custom');
 
 // Based on: http://blog.avisi.nl/2014/04/25/how-to-keep-a-fast-build-with-browserify-and-reactjs/
 function buildScript(file) {
@@ -38,6 +39,9 @@ function buildScript(file) {
   bundler.transform(babelify);
   bundler.transform(debowerify);
   bundler.transform(ngAnnotate);
+  bundler.transform(envify({
+    BUILD_TYPE: global.buildType
+  }));
   bundler.transform('brfs');
 
   function rebundle() {

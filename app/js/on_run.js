@@ -15,6 +15,7 @@ function OnRun($rootScope, AppSettings) {
     }
 
     $rootScope.pageTitle += AppSettings.appTitle;
+    $rootScope.apiUrl = AppSettings.apiUrl;
   });
 
 }
