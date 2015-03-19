@@ -64,6 +64,10 @@ function buildScript(file) {
 
 gulp.task('browserify', function() {
 
+  if (global.isProd) {
+    return buildScript("main-" + global.buildTime + ".js");
+  }
+
   return buildScript('main.js');
 
 });

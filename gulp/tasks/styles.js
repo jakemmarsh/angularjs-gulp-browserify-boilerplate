@@ -7,6 +7,7 @@ var gulpif       = require('gulp-if');
 var handleErrors = require('../util/handleErrors');
 var browserSync  = require('browser-sync');
 var autoprefixer = require('gulp-autoprefixer');
+var rename =       require('gulp-rename');
 
 gulp.task('styles', function () {
 
@@ -18,6 +19,11 @@ gulp.task('styles', function () {
     }))
     .pipe(autoprefixer("last 2 versions", "> 1%", "ie 8"))
     .on('error', handleErrors)
+    .pipe(gulpif(global.isProd, rename(function (path) {
+      path.dirname += "";
+      path.basename += "-" + global.buildTime;
+      path.extname += '';
+    })))
     .pipe(gulp.dest(config.styles.dest()))
     .pipe(gulpif(browserSync.active, browserSync.reload({ stream: true })));
 
