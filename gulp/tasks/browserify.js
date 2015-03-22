@@ -36,13 +36,18 @@ function buildScript(file) {
     });
   }
 
-  bundler.transform(babelify);
-  bundler.transform(debowerify);
-  bundler.transform(ngAnnotate);
-  bundler.transform(envify({
-    BUILD_TYPE: global.buildType
-  }));
-  bundler.transform('brfs');
+  var transforms = [
+    babelify,
+    debowerify,
+    ngAnnotate,
+    envify({BUILD_TYPE: global.buildType}),
+    'brfs',
+    'bulkify'
+  ];
+
+  transforms.forEach(function(transform) {
+    bundler.transform(transform);
+  });
 
   function rebundle() {
     var stream = bundler.bundle();
