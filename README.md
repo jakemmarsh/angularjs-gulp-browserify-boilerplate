@@ -15,6 +15,10 @@ A boilerplate using AngularJS, SASS, Gulp, and Browserify that also utilizes [th
 
 Now that `gulp dev` is running, the server is up as well and serving files from the `/build` directory. Any changes in the `/app` directory will be automatically processed by Gulp and the changes will be injected to any open browsers pointed at the proxy address.
 
+### Options
+
+By set `global.buildType`, you can save the build result in `/build/${global.buildType}` directory.
+
 ---
 
 This boilerplate uses the latest versions of the following libraries:
