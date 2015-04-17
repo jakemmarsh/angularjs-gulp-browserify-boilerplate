@@ -1,7 +1,7 @@
 'use strict';
 
 var istanbul = require('browserify-istanbul');
-var isparta = require('isparta');
+var isparta  = require('isparta');
 
 module.exports = function(config) {
 
