@@ -11,6 +11,6 @@
  * To add a new task, simply add a new task file to gulp/tasks.
  */
 
-global.isProd = false;
+global.buildTime = +new Date();
 
 require('./gulp');

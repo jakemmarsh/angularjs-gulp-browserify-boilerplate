@@ -8,6 +8,6 @@ gulp.task('gzip', function() {
 
   return gulp.src(config.gzip.src)
     .pipe(gzip(config.gzip.options))
-    .pipe(gulp.dest(config.gzip.dest));
+    .pipe(gulp.dest(config.gzip.dest()));
 
 });

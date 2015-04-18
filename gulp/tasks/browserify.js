@@ -16,6 +16,7 @@ var handleErrors = require('../util/handleErrors');
 var browserSync  = require('browser-sync');
 var debowerify   = require('debowerify');
 var ngAnnotate   = require('browserify-ngannotate');
+var envify       = require('envify/custom');
 
 // Based on: http://blog.avisi.nl/2014/04/25/how-to-keep-a-fast-build-with-browserify-and-reactjs/
 function buildScript(file) {
@@ -39,6 +40,7 @@ function buildScript(file) {
     babelify,
     debowerify,
     ngAnnotate,
+    envify({BUILD_TYPE: global.buildType}),
     'brfs',
     'bulkify'
   ];
@@ -61,7 +63,7 @@ function buildScript(file) {
         compress: { drop_console: true }
       }))))
       .pipe(gulpif(createSourcemap, sourcemaps.write('./')))
-      .pipe(gulp.dest(config.scripts.dest))
+      .pipe(gulp.dest(config.scripts.dest()))
       .pipe(gulpif(browserSync.active, browserSync.reload({ stream: true, once: true })));
   }
 
@@ -70,6 +72,10 @@ function buildScript(file) {
 }
 
 gulp.task('browserify', function() {
+
+  if (global.isProd) {
+    return buildScript("main-" + global.buildTime + ".js");
+  }
 
   return buildScript('main.js');
 

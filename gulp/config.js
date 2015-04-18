@@ -1,27 +1,44 @@
 'use strict';
 
+var path = require('path');
+
+function buildPath(subDir) {
+  return function () {
+    var paths = ['build'];
+    if (global.buildType) {
+      paths.push(global.buildType);
+    }
+
+    if (subDir) {
+      paths.push(subDir);
+    }
+
+    return path.join.apply(path, paths);
+  };
+}
+
 module.exports = {
 
   'serverport': 3000,
 
   'styles': {
     'src' : 'app/styles/**/*.scss',
-    'dest': 'build/css'
+    'dest': buildPath('css')
   },
 
   'scripts': {
     'src' : 'app/js/**/*.js',
-    'dest': 'build/js'
+    'dest': buildPath('js')
   },
 
   'images': {
     'src' : 'app/images/**/*',
-    'dest': 'build/images'
+    'dest': buildPath('images')
   },
 
   'fonts': {
     'src' : ['app/fonts/**/*'],
-    'dest': 'build/fonts'
+    'dest': buildPath('fonts')
   },
 
   'views': {
@@ -35,12 +52,12 @@ module.exports = {
 
   'gzip': {
     'src': 'build/**/*.{html,xml,json,css,js,js.map}',
-    'dest': 'build/',
+    'dest': buildPath(),
     'options': {}
   },
 
   'dist': {
-    'root'  : 'build'
+    'root'  : buildPath()
   },
 
   'browserify': {
