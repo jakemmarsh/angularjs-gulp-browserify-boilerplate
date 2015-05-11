@@ -3,7 +3,7 @@
 /**
  * @ngInject
  */
-function Routes($stateProvider, $locationProvider, $urlRouterProvider) {
+function OnConfig($stateProvider, $locationProvider, $urlRouterProvider) {
 
   $locationProvider.html5Mode(true);
 
@@ -19,4 +19,4 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider) {
 
 }
 
-module.exports = Routes;
+module.exports = OnConfig;

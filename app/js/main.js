@@ -25,7 +25,7 @@ angular.element(document).ready(function() {
 
   angular.module('app').constant('AppSettings', require('./constants'));
 
-  angular.module('app').config(require('./routes'));
+  angular.module('app').config(require('./on_config'));
 
   angular.module('app').run(require('./on_run'));
 
