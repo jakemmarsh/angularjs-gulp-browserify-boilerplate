@@ -47,7 +47,7 @@ The AngularJS files are all located within `/app/js`, structured in the followin
 constants.js  (any constant values that you want to make available to Angular)
 main.js       (the main file read by Browserify, also where the application is defined and bootstrapped)
 on_run.js     (any functions or logic that need to be executed on app.run)
-routes.js     (all route definitions and logic)
+on_config.js  (all route definitions and any logic that need to be executed on app.config)
 templates.js  (this is created via Gulp by compiling your views, and will not be present beforehand)
 ```
 
