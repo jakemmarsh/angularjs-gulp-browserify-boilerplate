@@ -10,7 +10,6 @@ describe('Unit: ExampleCtrl', function() {
     // instantiate the app module
     angular.mock.module('app');
 
-    // mock the controller
     angular.mock.inject(function($controller) {
       ctrl = $controller('ExampleCtrl');
     });
