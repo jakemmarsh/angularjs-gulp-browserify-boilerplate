@@ -2,13 +2,6 @@
   "name": "angularjs-gulp-browserify-boilerplate",
   "version": "0.1.0",
   "author": "Jake Marsh <jakemmarsh@gmail.com>",
-  "contributors": [
-    {
-      "name": "Solomon Hawk",
-      "email": "solomon.hawk@viget.com",
-      "url": "http://www.solomohawk.com/"
-    }
-  ],
   "description": "Boilerplate using AngularJS, SASS, Gulp, and Browserify while also utilizing best practices.",
   "repository": {
     "type": "git",
