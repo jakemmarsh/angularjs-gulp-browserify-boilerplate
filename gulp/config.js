@@ -2,7 +2,7 @@
 
 module.exports = {
 
-  'serverport': 3000,
+  'serverport': 3002,
 
   'styles': {
     'src' : 'app/styles/**/*.scss',

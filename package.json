@@ -28,7 +28,7 @@
     "angular-ui-router": "^0.2.13",
     "babelify": "^5.0.4",
     "brfs": "^1.2.0",
-    "browser-sync": "^1.5.8",
+    "browser-sync": "^2.7.6",
     "browserify": "^5.10.0",
     "browserify-istanbul": "^0.2.0",
     "browserify-ngannotate": "^0.1.0",
