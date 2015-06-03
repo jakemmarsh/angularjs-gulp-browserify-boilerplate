@@ -10,7 +10,7 @@ gulp.task('browserSync', function() {
   	port: config.browserport,
   	ui: {
     	port: config.uiport
-    }
+    },
     proxy: 'localhost:' + config.serverport
   });
 
