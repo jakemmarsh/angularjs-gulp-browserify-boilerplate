@@ -6,6 +6,8 @@ module.exports = {
   'uiport'       : 3001,
   'serverport'   : 3002,
 
+  'logsizes'     : false,
+
   'styles': {
     'src' : 'app/styles/**/*.scss',
     'dest': 'build/css'
