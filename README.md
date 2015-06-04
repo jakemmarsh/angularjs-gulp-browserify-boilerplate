@@ -124,7 +124,7 @@ All of the Gulp processes mentioned above are run automatically when any of the 
 
 ##### Logging File Sizes
 
-A configurable boolean, 'logsizes', is located in gulp/config.js and defaulted to false. If enabled, files that are compressed throughout the build process will have their sizes logged before and after the compression tasks. This allows you to be always be conscious of your file sizes and track the results of various optimizations.
+A configurable boolean, `logsizes`, is located in `gulp/config.js` and defaulted to `false`. If enabled, files that are compressed throughout the build process will have their sizes logged before and after the compression tasks. This allows you to be always be conscious of your file sizes and track the results of various optimizations.
 
 ##### Production Task
 
