@@ -13,7 +13,7 @@ gulp.task('protractor', ['webdriver-update', 'webdriver', 'server'], function() 
 
   return gulp.src('test/e2e/**/*.js')
     .pipe(protractor({
-        configFile: config.test.protractor,
+        configFile: config.test.protractor
     }))
     .on('error', function(err) {
       // Make sure failed tests cause gulp to exit non-zero

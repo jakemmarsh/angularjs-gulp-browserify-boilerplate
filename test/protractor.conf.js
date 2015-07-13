@@ -1,10 +1,14 @@
 'use strict';
 
+var gulpConfig = require('../gulp/config');
+
 exports.config = {
 
   allScriptsTimeout: 11000,
 
-  baseUrl: 'http://localhost:3000/',
+  baseUrl: 'http://localhost:' + gulpConfig.serverPort + '/',
+
+  directConnect: true,
 
   capabilities: {
     browserName: 'chrome',
