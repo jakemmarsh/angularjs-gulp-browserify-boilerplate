@@ -24,13 +24,13 @@ gulp.task('server', function() {
   var s = http.createServer(server);
   s.on('error', function(err){
     if(err.code === 'EADDRINUSE'){
-      gutil.log('Development server is already started at port ' + config.serverport);
+      gutil.log('Development server is already started at port ' + config.serverPort);
     }
     else {
       throw err;
     }
   });
 
-  s.listen(config.serverport);
+  s.listen(config.serverPort);
 
 });

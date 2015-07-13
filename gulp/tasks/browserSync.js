@@ -7,11 +7,11 @@ var gulp        = require('gulp');
 gulp.task('browserSync', function() {
 
   browserSync({
-  	port: config.browserport,
+  	port: config.browserPort,
   	ui: {
-    	port: config.uiport
+    	port: config.UIPort
     },
-    proxy: 'localhost:' + config.serverport
+    proxy: 'localhost:' + config.serverPort
   });
 
 });
