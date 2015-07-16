@@ -126,6 +126,10 @@ Files inside `/app/views/`, on the other hand, go through a slightly more comple
 
 All of the Gulp processes mentioned above are run automatically when any of the corresponding files in the `/app` directory are changed, and this is thanks to our Gulp watch tasks. Running `gulp dev` will begin watching all of these files, while also serving to `localhost:3002`, and with browser-sync proxy running at `localhost:3000` (by default).
 
+##### Logging File Sizes
+
+A configurable boolean, `logsizes`, is located in `gulp/config.js` and defaulted to `false`. If enabled, files that are compressed throughout the build process will have their sizes logged before and after the compression tasks. This allows you to be always be conscious of your file sizes and track the results of various optimizations.
+
 ##### Production Task
 
 Just as there is the `gulp dev` task for development, there is also a `gulp prod` task for putting your project into a production-ready state. This will run each of the tasks, while also adding the image minification task discussed above. There is also an empty `gulp deploy` task that is included when running the production task. This deploy task can be fleshed out to automatically push your production-ready site to your hosting setup.
