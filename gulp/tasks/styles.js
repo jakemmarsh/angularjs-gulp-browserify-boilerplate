@@ -18,6 +18,6 @@ gulp.task('styles', function () {
     .pipe(autoprefixer('last 2 versions', '> 1%', 'ie 8'))
     .on('error', handleErrors)
     .pipe(gulp.dest(config.styles.dest))
-    .pipe(browserSync.reload({ stream: true }));
+    .pipe(browserSync.stream({ once: true }));
 
 });

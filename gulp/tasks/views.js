@@ -2,6 +2,7 @@
 
 var config         = require('../config');
 var gulp           = require('gulp');
+var browserSync    = require('browser-sync');
 var templateCache  = require('gulp-angular-templatecache');
 
 // Views task
@@ -16,6 +17,7 @@ gulp.task('views', function() {
     .pipe(templateCache({
       standalone: true
     }))
-    .pipe(gulp.dest(config.views.dest));
+    .pipe(gulp.dest(config.views.dest))
+    .pipe(browserSync.stream({ once: true }));
 
 });
