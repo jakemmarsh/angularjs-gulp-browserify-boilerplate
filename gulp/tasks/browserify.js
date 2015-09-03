@@ -26,7 +26,7 @@ function buildScript(file) {
     cache: {},
     packageCache: {},
     fullPaths: !global.isProd
-  }, watchify.args);
+  });
 
   if ( !global.isProd ) {
     bundler = watchify(bundler);
