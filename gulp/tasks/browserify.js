@@ -26,7 +26,7 @@ function buildScript(file) {
     cache: {},
     packageCache: {},
     fullPaths: !global.isProd
-  }, watchify.args);
+  });
 
   if ( !global.isProd ) {
     bundler = watchify(bundler);
@@ -49,7 +49,7 @@ function buildScript(file) {
 
   function rebundle() {
     var stream = bundler.bundle();
-    var createSourcemap = global.isProd && config.browserify.sourcemap;
+    var createSourcemap = global.isProd && config.browserify.prodSourcemap;
 
     gutil.log('Rebundle...');
 
