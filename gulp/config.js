@@ -9,7 +9,7 @@ module.exports = {
   'styles': {
     'src' : 'app/styles/**/*.scss',
     'dest': 'build/css',
-    'prodSourcemap' : true
+    'prodSourcemap' : false
   },
 
   'scripts': {
@@ -49,7 +49,7 @@ module.exports = {
   'browserify': {
     'entries'   : ['./app/js/main.js'],
     'bundleName': 'main.js',
-    'prodSourcemap' : true
+    'prodSourcemap' : false
   },
 
   'test': {
