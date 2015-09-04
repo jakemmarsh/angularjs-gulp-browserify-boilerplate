@@ -8,7 +8,8 @@ module.exports = {
 
   'styles': {
     'src' : 'app/styles/**/*.scss',
-    'dest': 'build/css'
+    'dest': 'build/css',
+    'prodSourcemap' : true
   },
 
   'scripts': {
@@ -48,7 +49,7 @@ module.exports = {
   'browserify': {
     'entries'   : ['./app/js/main.js'],
     'bundleName': 'main.js',
-    'sourcemap' : true
+    'prodSourcemap' : true
   },
 
   'test': {
