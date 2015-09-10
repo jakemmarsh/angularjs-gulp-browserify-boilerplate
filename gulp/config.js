@@ -9,7 +9,8 @@ module.exports = {
   'styles': {
     'src' : 'app/styles/**/*.scss',
     'dest': 'build/css',
-    'prodSourcemap' : false
+    'prodSourcemap': false,
+    'sassIncludePaths': []
   },
 
   'scripts': {

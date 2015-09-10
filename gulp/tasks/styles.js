@@ -17,7 +17,8 @@ gulp.task('styles', function () {
     .pipe(gulpif(createSourcemap, sourcemaps.init()))
     .pipe(sass({
       sourceComments: !global.isProd,
-      outputStyle: global.isProd ? 'compressed' : 'nested'
+      outputStyle: global.isProd ? 'compressed' : 'nested',
+      includePaths: config.styles.sassIncludePaths
     }))
     .pipe(autoprefixer('last 2 versions', '> 1%', 'ie 8'))
     .on('error', handleErrors)
