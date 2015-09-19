@@ -1,7 +1,5 @@
 'use strict';
 
-var directivesModule = require('./_index.js');
-
 /**
  * @ngInject
  */
@@ -18,4 +16,8 @@ function exampleDirective() {
 
 }
 
-directivesModule.directive('exampleDirective', exampleDirective);
+module.exports = {
+  type: 'directive',
+  name: 'exampleDirective',
+  fn: exampleDirective
+};

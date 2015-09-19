@@ -6,8 +6,8 @@ var angular = require('angular');
 require('angular-ui-router');
 require('./templates');
 require('./controllers');
-require('./services/_index');
-require('./directives/_index');
+require('./services');
+require('./directives');
 
 // create and bootstrap application
 angular.element(document).ready(function() {
