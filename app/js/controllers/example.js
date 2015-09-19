@@ -1,6 +1,6 @@
 'use strict';
 
-var controllersModule = require('./_index');
+import controllersModule from './_index';
 
 /**
  * @ngInject
@@ -8,7 +8,7 @@ var controllersModule = require('./_index');
 function ExampleCtrl() {
 
   // ViewModel
-  var vm = this;
+  const vm = this;
 
   vm.title = 'AngularJS, Gulp, and Browserify!';
   vm.number = 1234;

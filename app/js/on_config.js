@@ -19,4 +19,4 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider) {
 
 }
 
-module.exports = OnConfig;
+export default OnConfig;

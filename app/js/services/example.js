@@ -1,24 +1,22 @@
 'use strict';
 
-var servicesModule = require('./_index.js');
+import servicesModule from './_index.js';
 
 /**
  * @ngInject
  */
-function ExampleService($q, $http) {
+function ExampleService($http) {
 
-  var service = {};
+  const service = {};
 
   service.get = function() {
-    var deferred = $q.defer();
-
-    $http.get('apiPath').success(function(data) {
-        deferred.resolve(data);
-    }).error(function(err, status) {
-        deferred.reject(err, status);
+    return new Promise((resolve, reject) => {
+      $http.get('apiPath').success((data) => {
+        resolve(data);
+      }).error((err, status) => {
+        reject(err, status);
+      });
     });
-
-    return deferred.promise;
   };
 
   return service;

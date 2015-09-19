@@ -1,8 +1,8 @@
 'use strict';
 
-var angular = require('angular');
-var bulk = require('bulk-require');
+import angular from 'angular';
+const bulk = require('bulk-require');
 
-module.exports = angular.module('app.directives', []);
+export default angular.module('app.directives', []);
 
 bulk(__dirname, ['./**/!(*_index|*.spec).js']);
