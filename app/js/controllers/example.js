@@ -1,10 +1,5 @@
 'use strict';
 
-var controllersModule = require('./_index');
-
-/**
- * @ngInject
- */
 function ExampleCtrl() {
 
   // ViewModel
@@ -15,4 +10,8 @@ function ExampleCtrl() {
 
 }
 
-controllersModule.controller('ExampleCtrl', ExampleCtrl);
+module.exports = {
+  type: 'controller',
+  name: 'ExampleCtrl',
+  fn: ExampleCtrl
+};
