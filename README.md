@@ -17,9 +17,10 @@ A boilerplate using AngularJS, SASS, Gulp, and Browserify that also utilizes [th
 
 Now that `gulp dev` is running, the server is up as well and serving files from the `/build` directory. Any changes in the `/app` directory will be automatically processed by Gulp and the changes will be injected to any open browsers pointed at the proxy address.
 
-##### Getting up and running with Yeoman
+#### Other resources
 
-[angularjs-gulp-browserify-boilerplate generator for Yeoman](https://github.com/alferov/generator-angular-gulp-browserify)
+- [Yeoman generator](https://github.com/alferov/generator-angular-gulp-browserify)
+- [Cordova-friendly fork](https://github.com/StrikeForceZero/angularjs-cordova-gulp-browserify-boilerplate)
 
 ---
 

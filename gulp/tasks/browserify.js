@@ -37,15 +37,15 @@ function buildScript(file) {
   }
 
   var transforms = [
-    babelify,
-    debowerify,
-    ngAnnotate,
-    'brfs',
-    'bulkify'
+    { 'name':babelify, 'options': {}},
+    { 'name':debowerify, 'options': {}},
+    { 'name':ngAnnotate, 'options': {}},
+    { 'name':'brfs', 'options': {}},
+    { 'name':'bulkify', 'options': {}}
   ];
 
   transforms.forEach(function(transform) {
-    bundler.transform(transform);
+    bundler.transform(transform.name, transform.options);
   });
 
   function rebundle() {
