@@ -11,7 +11,6 @@ function ExampleCtrl() {
 }
 
 module.exports = {
-  type: 'controller',
   name: 'ExampleCtrl',
   fn: ExampleCtrl
 };

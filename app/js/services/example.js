@@ -21,7 +21,6 @@ function ExampleService($q, $http) {
 }
 
 module.exports = {
-  type: 'service',
   name: 'ExampleService',
   fn: ExampleService
 };

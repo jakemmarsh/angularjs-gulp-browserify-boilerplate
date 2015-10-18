@@ -14,7 +14,6 @@ function exampleDirective() {
 }
 
 module.exports = {
-  type: 'directive',
   name: 'exampleDirective',
   fn: exampleDirective
 };

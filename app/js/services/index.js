@@ -5,13 +5,12 @@ var bulk = require('bulk-require');
 
 var servicesModule = angular.module('app.services', []);
 
-var services = bulk(__dirname, ['./**/!(*_index|*.spec).js']);
+var services = bulk(__dirname, ['./**/!(*index|*.spec).js']);
 
 Object.keys(services).forEach(function(key) {
-  var module = services[key];
-  if ( module.type && module.type === 'service' ) {
-    servicesModule.controller(module.name, module.fn);
-  }
+  var item = services[key];
+
+  servicesModule.controller(item.name, item.fn);
 });
 
 module.exports = servicesModule;
