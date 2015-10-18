@@ -6,9 +6,6 @@ module.exports = {
   'UIPort'       : 3001,
   'serverPort'   : 3002,
 
-  'sourceDir': './app/',
-  'buildDir': './build/',
-
   'styles': {
     'src' : 'app/styles/**/*.scss',
     'dest': 'build/css',
@@ -46,7 +43,12 @@ module.exports = {
     'options': {}
   },
 
+  'dist': {
+    'root'  : 'build'
+  },
+
   'browserify': {
+    'entries'   : ['./app/js/main.js'],
     'bundleName': 'main.js',
     'prodSourcemap' : false
   },
