@@ -1,8 +1,5 @@
 'use strict';
 
-/**
- * @ngInject
- */
 function exampleDirective() {
 
   return {

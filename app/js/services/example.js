@@ -1,8 +1,5 @@
 'use strict';
 
-/**
- * @ngInject
- */
 function ExampleService($q, $http) {
 
   var service = {};

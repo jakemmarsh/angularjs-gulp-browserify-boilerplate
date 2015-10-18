@@ -21,7 +21,7 @@ var ngAnnotate   = require('browserify-ngannotate');
 function buildScript(file) {
 
   var bundler = browserify({
-    entries: config.browserify.entries,
+    entries: [config.sourceDir + 'js/' + file],
     debug: true,
     cache: {},
     packageCache: {},
@@ -30,28 +30,28 @@ function buildScript(file) {
 
   if ( !global.isProd ) {
     bundler = watchify(bundler);
+
     bundler.on('update', function() {
       rebundle();
+      gutil.log('Rebundle...');
     });
   }
 
   var transforms = [
-    babelify,
-    debowerify,
-    ngAnnotate,
-    'brfs',
-    'bulkify'
+    { 'name':babelify, 'options': {}},
+    { 'name':debowerify, 'options': {}},
+    { 'name':ngAnnotate, 'options': {}},
+    { 'name':'brfs', 'options': {}},
+    { 'name':'bulkify', 'options': {}}
   ];
 
   transforms.forEach(function(transform) {
-    bundler.transform(transform);
+    bundler.transform(transform.name, transform.options);
   });
 
   function rebundle() {
     var stream = bundler.bundle();
     var createSourcemap = global.isProd && config.browserify.prodSourcemap;
-
-    gutil.log('Rebundle...');
 
     return stream.on('error', handleErrors)
       .pipe(source(file))
