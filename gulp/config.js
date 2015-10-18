@@ -31,7 +31,7 @@ module.exports = {
   },
 
   views: {
-    index: 'app/views/index.html',
+    index: 'app/index.html',
     src: 'app/views/**/*.html',
     dest: 'app/js'
   },
