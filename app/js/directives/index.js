@@ -7,7 +7,7 @@ const directivesModule = angular.module('app.directives', []);
 
 const directives = bulk(__dirname, ['./**/!(*index|*.spec).js']);
 
-Object.keys(directives).forEach(function(key) {
+Object.keys(directives).forEach((key) => {
   let item = directives[key];
 
   directivesModule.directive(item.name, item.fn);
