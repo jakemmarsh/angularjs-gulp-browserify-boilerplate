@@ -6,7 +6,7 @@ exports.config = {
 
   allScriptsTimeout: 11000,
 
-  baseUrl: 'http://localhost:' + gulpConfig.serverPort + '/',
+  baseUrl: 'http://localhost:' + gulpConfig.browserPort + '/',
 
   directConnect: true,
 
