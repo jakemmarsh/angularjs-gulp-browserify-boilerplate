@@ -1,10 +1,5 @@
 'use strict';
 
-import directivesModule from './_index.js';
-
-/**
- * @ngInject
- */
 function exampleDirective() {
 
   return {
@@ -18,4 +13,7 @@ function exampleDirective() {
 
 }
 
-directivesModule.directive('exampleDirective', exampleDirective);
+module.exports = {
+  name: 'exampleDirective',
+  fn: exampleDirective
+};

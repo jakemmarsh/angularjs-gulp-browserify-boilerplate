@@ -1,10 +1,5 @@
 'use strict';
 
-import servicesModule from './_index.js';
-
-/**
- * @ngInject
- */
 function ExampleService($http) {
 
   const service = {};
@@ -23,4 +18,7 @@ function ExampleService($http) {
 
 }
 
-servicesModule.service('ExampleService', ExampleService);
+module.exports = {
+  name: 'ExampleService',
+  fn: ExampleService
+};

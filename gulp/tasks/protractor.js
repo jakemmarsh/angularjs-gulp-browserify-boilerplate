@@ -9,7 +9,7 @@ var config          = require('../config');
 gulp.task('webdriver-update', webdriverUpdate);
 gulp.task('webdriver', webdriver);
 
-gulp.task('protractor', ['webdriver-update', 'webdriver', 'server'], function(cb) {
+gulp.task('protractor', ['webdriver-update', 'webdriver', 'browserSync'], function(cb) {
 
   gulp.src('test/e2e/**/*.js').pipe(protractor({
       configFile: config.test.protractor
