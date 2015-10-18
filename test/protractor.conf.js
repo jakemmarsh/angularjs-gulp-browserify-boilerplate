@@ -16,7 +16,7 @@ exports.config = {
     platform: 'ANY'
   },
 
-  framework: 'jasmine',
+  framework: 'jasmine2',
 
   jasmineNodeOpts: {
     isVerbose: false,
