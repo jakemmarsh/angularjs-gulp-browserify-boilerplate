@@ -1,9 +1,9 @@
 'use strict';
 
-var config         = require('../config');
-var gulp           = require('gulp');
-var browserSync    = require('browser-sync');
-var templateCache  = require('gulp-angular-templatecache');
+import config        from '../config';
+import gulp          from 'gulp';
+import browserSync   from 'browser-sync';
+import templateCache from 'gulp-angular-templatecache';
 
 // Views task
 gulp.task('views', function() {

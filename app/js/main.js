@@ -5,9 +5,9 @@ import angular from 'angular';
 // angular modules
 import 'angular-ui-router';
 import './templates';
-import './controllers/_index';
-import './services/_index';
-import './directives/_index';
+import './controllers';
+import './services';
+import './directives';
 
 // create and bootstrap application
 const requires = [

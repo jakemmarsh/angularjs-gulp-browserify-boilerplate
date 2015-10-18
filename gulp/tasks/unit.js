@@ -1,8 +1,8 @@
 'use strict';
 
-var gulp   = require('gulp');
-var karma  = require('gulp-karma');
-var config = require('../config');
+import config from '../config';
+import gulp   from 'gulp';
+import karma  from 'gulp-karma';
 
 gulp.task('unit', ['views'], function() {
 
@@ -13,7 +13,7 @@ gulp.task('unit', ['views'], function() {
       configFile: config.test.karma,
       action: 'run'
     }))
-    .on('error', function(err) {
+    .on('error', (err) => {
       // Make sure failed tests cause gulp to exit non-zero
       throw err;
     });

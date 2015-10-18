@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = {
+export default {
 
   browserPort: 3000,
   UIPort: 3001,
