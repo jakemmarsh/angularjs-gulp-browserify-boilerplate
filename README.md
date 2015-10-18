@@ -65,7 +65,7 @@ Controllers, services, directives, etc. should all be placed within their respec
 ```javascript
 var ExampleModule = function() {};
 
-module.exports = {
+export default {
   name: 'ExampleModule',
   fn: ExampleModule
 };
