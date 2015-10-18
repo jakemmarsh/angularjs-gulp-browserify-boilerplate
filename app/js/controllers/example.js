@@ -10,7 +10,7 @@ function ExampleCtrl() {
 
 }
 
-module.exports = {
+export default {
   name: 'ExampleCtrl',
   fn: ExampleCtrl
 };

@@ -1,6 +1,6 @@
 'use strict';
 
-function exampleDirective() {
+function ExampleDirective() {
 
   return {
     restrict: 'EA',
@@ -13,7 +13,7 @@ function exampleDirective() {
 
 }
 
-module.exports = {
+export default {
   name: 'exampleDirective',
-  fn: exampleDirective
+  fn: ExampleDirective
 };

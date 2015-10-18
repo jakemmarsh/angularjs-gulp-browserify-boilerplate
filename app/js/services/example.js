@@ -18,7 +18,7 @@ function ExampleService($http) {
 
 }
 
-module.exports = {
+export default {
   name: 'ExampleService',
   fn: ExampleService
 };
