@@ -1,17 +1,17 @@
 'use strict';
 
-var config       = require('../config');
-var gulp         = require('gulp');
-var gulpif       = require('gulp-if');
-var sourcemaps   = require('gulp-sourcemaps');
-var sass         = require('gulp-sass');
-var handleErrors = require('../util/handleErrors');
-var browserSync  = require('browser-sync');
-var autoprefixer = require('gulp-autoprefixer');
+import config       from '../config';
+import gulp         from 'gulp';
+import gulpif       from 'gulp-if';
+import sourcemaps   from 'gulp-sourcemaps';
+import sass         from 'gulp-sass';
+import handleErrors from '../util/handleErrors';
+import browserSync  from 'browser-sync';
+import autoprefixer from 'gulp-autoprefixer';
 
 gulp.task('styles', function () {
 
-  var createSourcemap = !global.isProd || config.styles.prodSourcemap;
+  const createSourcemap = !global.isProd || config.styles.prodSourcemap;
 
   return gulp.src(config.styles.src)
     .pipe(gulpif(createSourcemap, sourcemaps.init()))

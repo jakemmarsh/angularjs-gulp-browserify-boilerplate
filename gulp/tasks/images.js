@@ -1,11 +1,11 @@
 'use strict';
 
-var config      = require('../config');
-var changed     = require('gulp-changed');
-var gulp        = require('gulp');
-var gulpif      = require('gulp-if');
-var imagemin    = require('gulp-imagemin');
-var browserSync = require('browser-sync');
+import config      from '../config';
+import changed     from 'gulp-changed';
+import gulp        from 'gulp';
+import gulpif      from 'gulp-if';
+import imagemin    from 'gulp-imagemin';
+import browserSync from 'browser-sync';
 
 gulp.task('images', function() {
 

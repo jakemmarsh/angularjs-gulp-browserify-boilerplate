@@ -1,11 +1,11 @@
 'use strict';
 
-function exampleDirective() {
+function ExampleDirective() {
 
   return {
     restrict: 'EA',
-    link: function(scope, element) {
-      element.on('click', function() {
+    link: (scope, element) => {
+      element.on('click', () => {
         console.log('element clicked');
       });
     }
@@ -13,7 +13,7 @@ function exampleDirective() {
 
 }
 
-module.exports = {
+export default {
   name: 'exampleDirective',
-  fn: exampleDirective
+  fn: ExampleDirective
 };

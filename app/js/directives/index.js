@@ -1,16 +1,16 @@
 'use strict';
 
-var angular = require('angular');
-var bulk = require('bulk-require');
+import angular from 'angular';
+const bulk = require('bulk-require');
 
-var directivesModule = angular.module('app.directives', []);
+const directivesModule = angular.module('app.directives', []);
 
-var directives = bulk(__dirname, ['./**/!(*index|*.spec).js']);
+const directives = bulk(__dirname, ['./**/!(*index|*.spec).js']);
 
-Object.keys(directives).forEach(function(key) {
-  var item = directives[key];
+Object.keys(directives).forEach((key) => {
+  let item = directives[key];
 
   directivesModule.directive(item.name, item.fn);
 });
 
-module.exports = directivesModule;
+export default directivesModule;

@@ -1,6 +1,6 @@
 'use strict';
 
-var gulp = require('gulp');
+import gulp from 'gulp';
 
 gulp.task('deploy', ['prod'], function() {
 

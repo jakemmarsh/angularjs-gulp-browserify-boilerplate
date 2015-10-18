@@ -1,16 +1,16 @@
 'use strict';
 
-var angular = require('angular');
+import angular from 'angular';
 
 // angular modules
-require('angular-ui-router');
-require('./templates');
-require('./controllers');
-require('./services');
-require('./directives');
+import 'angular-ui-router';
+import './templates';
+import './controllers';
+import './services';
+import './directives';
 
 // create and bootstrap application
-var requires = [
+const requires = [
   'ui.router',
   'templates',
   'app.controllers',

@@ -3,14 +3,14 @@
 function ExampleCtrl() {
 
   // ViewModel
-  var vm = this;
+  const vm = this;
 
   vm.title = 'AngularJS, Gulp, and Browserify!';
   vm.number = 1234;
 
 }
 
-module.exports = {
+export default {
   name: 'ExampleCtrl',
   fn: ExampleCtrl
 };

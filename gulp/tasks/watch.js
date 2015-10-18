@@ -1,7 +1,7 @@
 'use strict';
 
-var config        = require('../config');
-var gulp          = require('gulp');
+import config from '../config';
+import gulp   from 'gulp';
 
 gulp.task('watch', ['browserSync'], function() {
 

@@ -1,8 +1,8 @@
 'use strict';
 
-var gulp   = require('gulp');
-var gzip   = require('gulp-gzip');
-var config = require('../config');
+import config from '../config';
+import gulp   from 'gulp';
+import gzip   from 'gulp-gzip';
 
 gulp.task('gzip', function() {
 
