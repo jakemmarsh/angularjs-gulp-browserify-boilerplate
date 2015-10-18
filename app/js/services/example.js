@@ -1,7 +1,5 @@
 'use strict';
 
-var servicesModule = require('./_index.js');
-
 function ExampleService($q, $http) {
 
   var service = {};
@@ -22,4 +20,7 @@ function ExampleService($q, $http) {
 
 }
 
-servicesModule.service('ExampleService', ExampleService);
+module.exports = {
+  name: 'ExampleService',
+  fn: ExampleService
+};

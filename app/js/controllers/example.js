@@ -1,7 +1,5 @@
 'use strict';
 
-var controllersModule = require('./_index');
-
 function ExampleCtrl() {
 
   // ViewModel
@@ -12,4 +10,7 @@ function ExampleCtrl() {
 
 }
 
-controllersModule.controller('ExampleCtrl', ExampleCtrl);
+module.exports = {
+  name: 'ExampleCtrl',
+  fn: ExampleCtrl
+};

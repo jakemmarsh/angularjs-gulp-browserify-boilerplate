@@ -1,7 +1,5 @@
 'use strict';
 
-var directivesModule = require('./_index.js');
-
 function exampleDirective() {
 
   return {
@@ -15,4 +13,7 @@ function exampleDirective() {
 
 }
 
-directivesModule.directive('exampleDirective', exampleDirective);
+module.exports = {
+  name: 'exampleDirective',
+  fn: exampleDirective
+};
