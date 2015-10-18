@@ -62,15 +62,7 @@ Controllers, services, directives, etc. should all be placed within their respec
 
 ##### Dependency injection
 
-Dependency injection is carried out with the `ng-annotate` library. In order to take advantage of this, a simple comment of the format:
-
-```javascript
-/**
- * @ngInject
- */
-```
-
-needs to be added directly before any Angular functions/modules. The Gulp tasks will then take care of adding any dependency injection, requiring you only to specify the dependencies within the function call and nothing more.
+Dependency injection is carried out with the `ng-annotate` library. The Gulp tasks will take care of injecting any dependencies, requiring you only to specify the dependencies within the function call and nothing more.
 
 ---
 

@@ -2,9 +2,6 @@
 
 var directivesModule = require('./_index.js');
 
-/**
- * @ngInject
- */
 function exampleDirective() {
 
   return {
