@@ -10,7 +10,7 @@ const services = bulk(__dirname, ['./**/!(*index|*.spec).js']);
 Object.keys(services).forEach((key) => {
   let item = services[key];
 
-  servicesModule.controller(item.name, item.fn);
+  servicesModule.service(item.name, item.fn);
 });
 
 export default servicesModule;
