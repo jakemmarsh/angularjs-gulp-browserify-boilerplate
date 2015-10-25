@@ -1,9 +1,9 @@
 'use strict';
 
-var config      = require('../config');
-var changed     = require('gulp-changed');
-var gulp        = require('gulp');
-var browserSync = require('browser-sync');
+import config      from '../config';
+import changed     from 'gulp-changed';
+import gulp        from 'gulp';
+import browserSync from 'browser-sync';
 
 gulp.task('fonts', function() {
 

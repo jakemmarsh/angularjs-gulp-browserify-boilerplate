@@ -1,27 +1,27 @@
 'use strict';
 
-var config       = require('../config');
-var gulp         = require('gulp');
-var gulpif       = require('gulp-if');
-var gutil        = require('gulp-util');
-var source       = require('vinyl-source-stream');
-var sourcemaps   = require('gulp-sourcemaps');
-var buffer       = require('vinyl-buffer');
-var streamify    = require('gulp-streamify');
-var watchify     = require('watchify');
-var browserify   = require('browserify');
-var babelify     = require('babelify');
-var uglify       = require('gulp-uglify');
-var handleErrors = require('../util/handleErrors');
-var browserSync  = require('browser-sync');
-var debowerify   = require('debowerify');
-var ngAnnotate   = require('browserify-ngannotate');
+import config       from '../config';
+import gulp         from 'gulp';
+import gulpif       from 'gulp-if';
+import gutil        from 'gulp-util';
+import source       from 'vinyl-source-stream';
+import sourcemaps   from 'gulp-sourcemaps';
+import buffer       from 'vinyl-buffer';
+import streamify    from 'gulp-streamify';
+import watchify     from 'watchify';
+import browserify   from 'browserify';
+import babelify     from 'babelify';
+import uglify       from 'gulp-uglify';
+import handleErrors from '../util/handleErrors';
+import browserSync  from 'browser-sync';
+import debowerify   from 'debowerify';
+import ngAnnotate   from 'browserify-ngannotate';
 
 // Based on: http://blog.avisi.nl/2014/04/25/how-to-keep-a-fast-build-with-browserify-and-reactjs/
 function buildScript(file) {
 
   var bundler = browserify({
-    entries: config.browserify.entries,
+    entries: [config.sourceDir + 'js/' + file],
     debug: true,
     cache: {},
     packageCache: {},
@@ -30,12 +30,14 @@ function buildScript(file) {
 
   if ( !global.isProd ) {
     bundler = watchify(bundler);
+
     bundler.on('update', function() {
       rebundle();
+      gutil.log('Rebundle...');
     });
   }
 
-  var transforms = [
+  const transforms = [
     { 'name':babelify, 'options': {}},
     { 'name':debowerify, 'options': {}},
     { 'name':ngAnnotate, 'options': {}},
@@ -48,10 +50,8 @@ function buildScript(file) {
   });
 
   function rebundle() {
-    var stream = bundler.bundle();
-    var createSourcemap = global.isProd && config.browserify.prodSourcemap;
-
-    gutil.log('Rebundle...');
+    const stream = bundler.bundle();
+    const createSourcemap = global.isProd && config.browserify.prodSourcemap;
 
     return stream.on('error', handleErrors)
       .pipe(source(file))

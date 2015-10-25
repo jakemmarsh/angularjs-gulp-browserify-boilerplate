@@ -1,16 +1,11 @@
 'use strict';
 
-var directivesModule = require('./_index.js');
-
-/**
- * @ngInject
- */
-function exampleDirective() {
+function ExampleDirective() {
 
   return {
     restrict: 'EA',
-    link: function(scope, element) {
-      element.on('click', function() {
+    link: (scope, element) => {
+      element.on('click', () => {
         console.log('element clicked');
       });
     }
@@ -18,4 +13,7 @@ function exampleDirective() {
 
 }
 
-directivesModule.directive('exampleDirective', exampleDirective);
+export default {
+  name: 'exampleDirective',
+  fn: ExampleDirective
+};

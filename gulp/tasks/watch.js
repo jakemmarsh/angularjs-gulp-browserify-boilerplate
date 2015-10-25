@@ -1,9 +1,9 @@
 'use strict';
 
-var config        = require('../config');
-var gulp          = require('gulp');
+import config from '../config';
+import gulp   from 'gulp';
 
-gulp.task('watch', ['browserSync', 'server'], function() {
+gulp.task('watch', ['browserSync'], function() {
 
   // Scripts are automatically watched and rebundled by Watchify inside Browserify task
   gulp.watch(config.scripts.src, ['lint']);

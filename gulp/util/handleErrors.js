@@ -1,8 +1,8 @@
 'use strict';
 
-var notify = require('gulp-notify');
+import notify from 'gulp-notify';
 
-module.exports = function(error) {
+export default function(error) {
 
   if( !global.isProd ) {
 

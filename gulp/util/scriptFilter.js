@@ -1,10 +1,10 @@
 'use strict';
 
-var path = require('path');
+import path from 'path';
 
 // Filters out non .js files. Prevents
 // accidental inclusion of possible hidden files
-module.exports = function(name) {
+export default function(name) {
 
   return /(\.(js)$)/i.test(path.extname(name));
 
