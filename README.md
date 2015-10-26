@@ -48,6 +48,9 @@ The AngularJS files are all located within `/app/js`, structured in the followin
 /directives
   index.js   (the main module on which all directives will be mounted, loaded in main.js)
   example.js
+/filters
+  index.js (the main module on which all filters will be mounted, loaded in main.js)
+  example.js
 /services
   index.js   (the main module on which all services will be mounted, loaded in main.js)
   example.js
