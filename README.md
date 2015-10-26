@@ -66,7 +66,7 @@ templates.js  (this is created via Gulp by compiling your views, and will not be
 Controllers, services, directives, etc. should all be placed within their respective folders, and will be automatically required and mounted via their respective `index.js` using `bulk-require`. All modules must export an object of the format:
 
 ```javascript
-var ExampleModule = function() {};
+const ExampleModule = function() {};
 
 export default {
   name: 'ExampleModule',
