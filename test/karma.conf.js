@@ -10,7 +10,7 @@ module.exports = function(config) {
     basePath: '../',
     frameworks: ['jasmine', 'browserify'],
     preprocessors: {
-      'app/js/**/*.js': ['browserify', 'babel', 'coverage']
+      'app/js/**/*.js': ['browserify', 'coverage']
     },
     browsers: ['Chrome'],
     reporters: ['progress', 'coverage'],
@@ -19,7 +19,9 @@ module.exports = function(config) {
 
     browserify: {
       debug: true,
+      extensions: ['.js', '.jsx'],
       transform: [
+        'babelify',
         'bulkify',
         istanbul({
           instrumenter: isparta,
