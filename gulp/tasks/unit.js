@@ -7,8 +7,6 @@ import {Server} from 'karma';
 
 gulp.task('unit', ['views'], function() {
 
-  console.log(__dirname);
-
   new Server({
     configFile: path.resolve(__dirname, '../..', config.test.karma),
     singleRun: true
