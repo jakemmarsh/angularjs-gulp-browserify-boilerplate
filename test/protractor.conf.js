@@ -1,12 +1,14 @@
 'use strict';
 
+require('babel-core/register');
+
 var gulpConfig = require('../gulp/config');
 
 exports.config = {
 
   allScriptsTimeout: 11000,
 
-  baseUrl: 'http://localhost:' + gulpConfig.browserPort + '/',
+  baseUrl: 'http://localhost:' + gulpConfig.UIPort + '/',
 
   directConnect: true,
 
