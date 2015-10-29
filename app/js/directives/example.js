@@ -4,7 +4,9 @@ function ExampleDirective() {
 
   return {
     restrict: 'EA',
+    templateUrl: 'directives/example.html',
     scope: {
+      title: '@',
       message: '@exampleDirective'
     },
     link: (scope, element, attrs) => {
@@ -13,7 +15,6 @@ function ExampleDirective() {
       });
     }
   };
-
 }
 
 export default {
