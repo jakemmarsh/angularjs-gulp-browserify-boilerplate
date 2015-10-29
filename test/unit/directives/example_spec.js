@@ -4,21 +4,29 @@
 
 describe('Unit: ExampleDirective', function() {
 
-  var element;
+  var element, scope;
 
   beforeEach(function() {
+    spyOn(window, 'alert');
     angular.mock.module('app');
 
     angular.mock.inject(function($compile, $rootScope) {
-      element = angular.element('<div example-directive></div>');
-
-      $compile(element)($rootScope);
+      scope = $rootScope;
+      element = angular.element('<div example-directive="{{message}}">Sample Directive</div>');
+      scope.message = "It doesn't hurt.";
+      $compile(element)(scope);
     });
   });
 
   it('should bind itself to the element', function() {
-    spyOn(window, 'alert');
     element.triggerHandler('click');
-    expect(window.alert).toHaveBeenCalledWith('element clicked');
+    expect(window.alert).toHaveBeenCalledWith("Element clicked: It doesn't hurt.");
+  });
+
+  it('should update its bindings', function() {
+    scope.message = "It hurts a bit.";
+    scope.$digest();
+    element.triggerHandler('click');
+    expect(window.alert).toHaveBeenCalledWith("Element clicked: It hurts a bit.");
   });
 });

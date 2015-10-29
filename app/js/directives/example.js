@@ -4,9 +4,12 @@ function ExampleDirective() {
 
   return {
     restrict: 'EA',
-    link: (scope, element) => {
+    scope: {
+      message: '@exampleDirective'
+    },
+    link: (scope, element, attrs) => {
       element.on('click', () => {
-        alert('element clicked');
+        alert('Element clicked: ' + scope.message);
       });
     }
   };
