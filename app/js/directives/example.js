@@ -6,7 +6,7 @@ function ExampleDirective() {
     restrict: 'EA',
     link: (scope, element) => {
       element.on('click', () => {
-        console.log('element clicked');
+        alert('element clicked');
       });
     }
   };
