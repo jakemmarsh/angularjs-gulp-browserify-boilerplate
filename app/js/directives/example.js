@@ -4,13 +4,17 @@ function ExampleDirective() {
 
   return {
     restrict: 'EA',
-    link: (scope, element) => {
+    templateUrl: 'directives/example.html',
+    scope: {
+      title: '@',
+      message: '@exampleDirective'
+    },
+    link: (scope, element, attrs) => {
       element.on('click', () => {
-        console.log('element clicked');
+        alert('Element clicked: ' + scope.message);
       });
     }
   };
-
 }
 
 export default {
