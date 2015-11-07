@@ -13,8 +13,8 @@ describe('Unit: ExampleDirective', function() {
     angular.mock.inject(function($compile, $rootScope) {
       scope = $rootScope;
       element = angular.element('<div example-directive="{{message}}" title="{{title}}">Sample Directive</div>');
-      scope.title = "A sample title";
-      scope.message = "It doesn't hurt.";
+      scope.title = 'A sample title';
+      scope.message = 'It doesn\'t hurt.';
       $compile(element)(scope);
       scope.$digest();
     });
@@ -22,14 +22,14 @@ describe('Unit: ExampleDirective', function() {
 
   it('should bind itself to the element', function() {
     element.triggerHandler('click');
-    expect(window.alert).toHaveBeenCalledWith("Element clicked: It doesn't hurt.");
+    expect(window.alert).toHaveBeenCalledWith('Element clicked: It doesn\'t hurt.');
   });
 
   it('should update its bindings', function() {
-    scope.message = "It hurts a bit.";
+    scope.message = 'It hurts a bit.';
     scope.$digest();
     element.triggerHandler('click');
-    expect(window.alert).toHaveBeenCalledWith("Element clicked: It hurts a bit.");
+    expect(window.alert).toHaveBeenCalledWith('Element clicked: It hurts a bit.');
   });
 
   it('should bind a title property to its template', function() {
