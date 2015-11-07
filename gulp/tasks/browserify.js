@@ -58,6 +58,7 @@ function buildScript(file) {
       .pipe(gulpif(createSourcemap, buffer()))
       .pipe(gulpif(createSourcemap, sourcemaps.init()))
       .pipe(gulpif(global.isProd, streamify(uglify({
+        mangle: false,
         compress: { drop_console: true }
       }))))
       .pipe(gulpif(createSourcemap, sourcemaps.write('./')))
