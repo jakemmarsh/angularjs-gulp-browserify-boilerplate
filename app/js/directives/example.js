@@ -9,9 +9,9 @@ function ExampleDirective() {
       title: '@',
       message: '@exampleDirective'
     },
-    link: (scope, element, attrs) => {
+    link: (scope, element) => {
       element.on('click', () => {
-        alert('Element clicked: ' + scope.message);
+        window.alert('Element clicked: ' + scope.message);
       });
     }
   };
