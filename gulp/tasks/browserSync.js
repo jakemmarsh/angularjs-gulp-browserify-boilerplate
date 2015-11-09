@@ -8,16 +8,15 @@ import gulp        from 'gulp';
 gulp.task('browserSync', function() {
 
   const DEFAULT_FILE = 'index.html';
-  const ASSET_EXTENSIONS = ['js', 'css', 'png', 'jpg', 'jpeg', 'gif'];
+  const ASSET_EXTENSION_REGEX = new RegExp(`\\b(?!\\?)\\.(${config.assetExtensions.join('|')})\\b(?!\\.)`, 'i');
 
   browserSync.init({
     server: {
       baseDir: config.buildDir,
       middleware: function(req, res, next) {
-        let fileHrefArray = url.parse(req.url).href.split('.');
-        let fileExtension = fileHrefArray[fileHrefArray.length - 1];
+        let fileHref = url.parse(req.url).href;
 
-        if ( ASSET_EXTENSIONS.indexOf(fileExtension) === -1 ) {
+        if ( !ASSET_EXTENSION_REGEX.test(fileHref) ) {
           req.url = '/' + DEFAULT_FILE;
         }
 

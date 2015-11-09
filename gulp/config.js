@@ -30,6 +30,20 @@ export default {
     dest: 'build/fonts'
   },
 
+  assetExtensions: [
+    'js',
+    'css',
+    'png',
+    'jpe?g',
+    'gif',
+    'svg',
+    'eot',
+    'otf',
+    'ttc',
+    'ttf',
+    'woff2?'
+  ],
+
   views: {
     index: 'app/index.html',
     src: 'app/views/**/*.html',
