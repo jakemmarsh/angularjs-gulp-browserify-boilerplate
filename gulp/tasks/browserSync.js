@@ -8,7 +8,7 @@ import gulp        from 'gulp';
 gulp.task('browserSync', function() {
 
   const DEFAULT_FILE = 'index.html';
-  const ASSET_EXTENSION_REGEX = /\b(?!\?)\.(js|css|png|jpe?g|gif|svg|eot|otf|ttc|ttf|woff2?)(?!\.)/i;
+  const ASSET_EXTENSION_REGEX = new RegExp(`\\b(?!\\?)\\.(${config.assetExtensions.join('|')})(?!\\.)`, 'i');
 
   browserSync.init({
     server: {
