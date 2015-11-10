@@ -63,7 +63,7 @@ function buildScript(file) {
       }))))
       .pipe(gulpif(createSourcemap, sourcemaps.write('./')))
       .pipe(gulp.dest(config.scripts.dest))
-      .pipe(browserSync.stream({ once: true }));
+      .pipe(browserSync.stream());
   }
 
   return rebundle();
