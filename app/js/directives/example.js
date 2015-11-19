@@ -1,7 +1,6 @@
 'use strict';
 
 function ExampleDirective() {
-  'ngInject';
 
   return {
     restrict: 'EA',
