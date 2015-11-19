@@ -77,7 +77,16 @@ export default {
 
 ##### Dependency injection
 
-Dependency injection is carried out with the `ng-annotate` library. The Gulp tasks will take care of injecting any dependencies, requiring you only to specify the dependencies within the function call and nothing more.
+Dependency injection is carried out with the `ng-annotate` library. In order to take advantage of this, a simple directive prologue of the format:
+
+```js
+function MyService($http) {
+  'ngInject';
+  ...
+}
+```
+
+needs to be added at the very beginning of any Angular functions/modules. The Gulp tasks will then take care of adding any dependency injection, requiring you to only specify the dependencies within the function parameters and nothing more.
 
 ---
 
