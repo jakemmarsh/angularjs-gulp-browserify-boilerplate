@@ -1,6 +1,7 @@
 'use strict';
 
 function ExampleCtrl() {
+  'ngInject';
 
   // ViewModel
   const vm = this;
