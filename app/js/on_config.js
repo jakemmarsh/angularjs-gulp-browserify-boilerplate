@@ -1,6 +1,7 @@
 'use strict';
 
 function OnConfig($stateProvider, $locationProvider, $urlRouterProvider) {
+  'ngInject';
 
   $locationProvider.html5Mode(true);
 

@@ -1,6 +1,7 @@
 'use strict';
 
 function ExampleService($http) {
+  'ngInject';
 
   const service = {};
 
