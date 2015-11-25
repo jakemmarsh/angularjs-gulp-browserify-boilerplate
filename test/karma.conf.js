@@ -19,9 +19,10 @@ module.exports = function(config) {
 
     browserify: {
       debug: true,
-      extensions: ['.js', '.jsx'],
+      extensions: ['.js'],
       transform: [
         'babelify',
+        'browserify-ngannotate',
         'bulkify',
         istanbul({
           instrumenter: isparta,
