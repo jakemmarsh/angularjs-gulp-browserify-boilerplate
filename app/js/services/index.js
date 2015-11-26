@@ -8,7 +8,7 @@ const servicesModule = angular.module('app.services', []);
 const services = bulk(__dirname, ['./**/!(*index|*.spec).js']);
 
 Object.keys(services).forEach((key) => {
-  let item = services[key];
+  let item = services[key].default;
 
   servicesModule.service(item.name, item.fn);
 });
