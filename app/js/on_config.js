@@ -1,5 +1,3 @@
-'use strict';
-
 function OnConfig($stateProvider, $locationProvider, $urlRouterProvider) {
   'ngInject';
 
