@@ -1,5 +1,3 @@
-'use strict';
-
 function ExampleService($http) {
   'ngInject';
 

@@ -1,5 +1,3 @@
-'use strict';
-
 function ExampleDirective() {
 
   return {

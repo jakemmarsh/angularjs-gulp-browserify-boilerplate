@@ -1,5 +1,3 @@
-'use strict';
-
 function OnRun($rootScope, AppSettings) {
   'ngInject';
 
