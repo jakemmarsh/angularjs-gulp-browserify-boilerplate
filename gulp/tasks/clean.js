@@ -4,8 +4,8 @@ import config from '../config';
 import gulp   from 'gulp';
 import del    from 'del';
 
-gulp.task('clean', function(cb) {
+gulp.task('clean', function() {
 
-  del([config.buildDir], cb);
-
+  return del([config.buildDir]);
+  
 });
