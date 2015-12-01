@@ -18,6 +18,6 @@ gulp.task('views', function() {
       standalone: true
     }))
     .pipe(gulp.dest(config.views.dest))
-    .pipe(browserSync.stream({ once: true }));
+    .pipe(browserSync.stream());
 
 });

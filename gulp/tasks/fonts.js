@@ -10,6 +10,6 @@ gulp.task('fonts', function() {
   return gulp.src(config.fonts.src)
     .pipe(changed(config.fonts.dest)) // Ignore unchanged files
     .pipe(gulp.dest(config.fonts.dest))
-    .pipe(browserSync.stream({ once: true }));
+    .pipe(browserSync.stream());
 
 });
