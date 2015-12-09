@@ -1,6 +1,6 @@
 {
   "name": "angularjs-gulp-browserify-boilerplate",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "author": "Jake Marsh <jakemmarsh@gmail.com>",
   "description": "Boilerplate using AngularJS, SASS, Gulp, and Browserify while also utilizing best practices.",
   "repository": {
