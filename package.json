@@ -72,9 +72,8 @@
     "watchify": "^3.4.0"
   },
   "scripts": {
-    "pretest": "npm install",
     "test": "karma start test/karma.conf.js",
-    "preprotractor": "npm install && webdriver-manager update",
+    "preprotractor": "webdriver-manager update",
     "protractor": "protractor test/protractor.conf.js"
   }
 }
