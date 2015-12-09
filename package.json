@@ -18,7 +18,7 @@
     "protractor",
     "boilerplate"
   ],
-  "private": true,
+  "private": false,
   "engines": {
     "node": ">=0.12.x"
   },
