@@ -47,7 +47,6 @@ module.exports = function(config) {
       // 3rd-party resources
       'node_modules/angular-mocks/angular-mocks.js',
 
-      // test files
       TEST_FILES
     ]
 
