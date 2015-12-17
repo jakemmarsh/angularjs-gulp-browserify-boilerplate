@@ -5,15 +5,13 @@ var isparta  = require('isparta');
 
 module.exports = function(config) {
 
-  var TEST_FILES = 'test/unit/**/*.js';
-
   config.set({
 
     basePath: '../',
     frameworks: ['jasmine', 'browserify'],
     preprocessors: {
       'app/js/**/*.js': ['browserify', 'coverage'],
-      TEST_FILES: ['browserify']
+      'test/unit/**/*.js': ['browserify']
     },
     browsers: ['Chrome'],
     reporters: ['progress', 'coverage'],
@@ -47,7 +45,8 @@ module.exports = function(config) {
       // 3rd-party resources
       'node_modules/angular-mocks/angular-mocks.js',
 
-      TEST_FILES
+      // test files
+      'test/unit/**/*.js'
     ]
 
   });
