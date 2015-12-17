@@ -10,7 +10,8 @@ module.exports = function(config) {
     basePath: '../',
     frameworks: ['jasmine', 'browserify'],
     preprocessors: {
-      'app/js/**/*.js': ['browserify', 'coverage']
+      'app/js/**/*.js': ['browserify', 'coverage'],
+      'test/unit/**/*.js': ['browserify']
     },
     browsers: ['Chrome'],
     reporters: ['progress', 'coverage'],
