@@ -7,10 +7,22 @@ const directivesModule = angular.module('app.directives', []);
 
 const directives = bulk(__dirname, ['./**/!(*index|*.spec).js']);
 
-Object.keys(directives).forEach((key) => {
-  let item = directives[key];
+function declare(directiveMap) {
+  Object.keys(directiveMap).forEach((key) => {
+    let item = directiveMap[key];
 
-  directivesModule.directive(item.name, item.fn);
-});
+    if (!item) {
+      return;
+    }
+
+    if (item.fn && typeof item.fn === 'function') {
+      directivesModule.directive(item.name, item.fn);
+    } else {
+      declare(item);
+    }
+  });
+}
+
+declare(directives);
 
 export default directivesModule;
