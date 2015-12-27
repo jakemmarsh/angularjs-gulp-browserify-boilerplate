@@ -7,10 +7,22 @@ const controllersModule = angular.module('app.controllers', []);
 
 const controllers = bulk(__dirname, ['./**/!(*index|*.spec).js']);
 
-Object.keys(controllers).forEach((key) => {
-  let item = controllers[key];
+function declare(controllerMap) {
+  Object.keys(controllerMap).forEach((key) => {
+    let item = controllerMap[key];
 
-  controllersModule.controller(item.name, item.fn);
-});
+    if (!item) {
+      return;
+    }
+
+    if (item.fn && typeof item.fn === 'function') {
+      controllersModule.controller(item.name, item.fn); 
+    } else { 
+      declare(item);
+    }
+  });
+}
+
+declare(controllers);
 
 export default controllersModule;
