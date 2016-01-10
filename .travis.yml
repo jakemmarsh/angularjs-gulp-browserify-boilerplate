@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+  - "4.2"
+sudo: false
+
+script:
+  - ./node_modules/.bin/gulp lint test
+
+cache:
+  directories:
+    - node_modules
+
+addons:
+  sauce_connect: true
