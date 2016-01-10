@@ -11,7 +11,7 @@ gulp.task('views', function() {
 
   // Put our index.html in the dist folder
   const indexFile = gulp.src(config.views.index)
-    .pipe(gulp.dest(configDir));
+    .pipe(gulp.dest(config.buildDir));
 
   // Process any other view files from app/views
   const views = gulp.src(config.views.src)
