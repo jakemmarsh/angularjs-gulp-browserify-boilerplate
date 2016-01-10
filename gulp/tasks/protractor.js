@@ -6,14 +6,12 @@ import express      from 'express';
 import gulp         from 'gulp';
 import {
   protractor,
-  webdriver,
-  webdriver_update
+  webdriver
 } from 'gulp-protractor';
 
-gulp.task('webdriver-update', webdriver_update);
 gulp.task('webdriver', webdriver);
 
-gulp.task('protractor', ['prod', 'webdriver-update', 'webdriver'], function(cb) {
+gulp.task('protractor', ['prod', 'webdriver'], function(cb) {
 
   const testFiles = gulp.src('test/e2e/**/*.js');
 
