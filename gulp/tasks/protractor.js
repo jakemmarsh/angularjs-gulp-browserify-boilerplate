@@ -4,9 +4,16 @@ import config       from '../config';
 import testServer   from '../util/testServer';
 import express      from 'express';
 import gulp         from 'gulp';
-import {protractor} from 'gulp-protractor';
+import {
+  protractor,
+  webdriver,
+  webdriver_update
+} from 'gulp-protractor';
 
-gulp.task('protractor', ['prod'], function(cb) {
+gulp.task('webdriver-update', webdriver_update);
+gulp.task('webdriver', webdriver);
+
+gulp.task('protractor', ['prod', 'webdriver-update', 'webdriver'], function(cb) {
 
   const testFiles = gulp.src('test/e2e/**/*.js');
 

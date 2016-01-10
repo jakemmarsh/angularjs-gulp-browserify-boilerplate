@@ -75,9 +75,7 @@
     "watchify": "^3.4.0"
   },
   "scripts": {
-    "test": "./node_modules/.bin/gulp test",
-    "webdriver-update": "./node_modules/.bin/webdriver-manager update",
-    "postinstall": "npm run webdriver-update"
+    "test": "./node_modules/.bin/gulp test"
   },
   "license": "MIT"
 }

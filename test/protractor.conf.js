@@ -2,7 +2,7 @@
 
 require('babel-core/register');
 
-import gulpConfig from '../gulp/config';
+const gulpConfig = require('../gulp/config');
 
 exports.config = {
 
