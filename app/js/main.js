@@ -1,8 +1,9 @@
-'use strict';
-
 import angular from 'angular';
 
 // angular modules
+import constants from './constants';
+import onConfig  from './on_config';
+import onRun     from './on_run';
 import 'angular-ui-router';
 import './templates';
 import './filters';

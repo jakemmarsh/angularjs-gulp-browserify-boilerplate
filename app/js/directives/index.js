@@ -1,10 +1,7 @@
-'use strict';
-
 import angular from 'angular';
+
 const bulk = require('bulk-require');
-
 const directivesModule = angular.module('app.directives', []);
-
 const directives = bulk(__dirname, ['./**/!(*index|*.spec).js']);
 
 function declare(directiveMap) {
