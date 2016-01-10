@@ -1,5 +1,3 @@
-'use strict';
-
 function ExampleFilter() {
 
   return function(input) {

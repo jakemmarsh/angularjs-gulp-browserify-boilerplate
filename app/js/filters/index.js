@@ -1,10 +1,7 @@
-'use strict';
-
 import angular from 'angular';
+
 const bulk = require('bulk-require');
-
 const filtersModule = angular.module('app.filters', []);
-
 const filters = bulk(__dirname, ['./**/!(*index|*.spec).js']);
 
 function declare(filterMap) {

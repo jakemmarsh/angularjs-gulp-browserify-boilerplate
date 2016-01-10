@@ -1,10 +1,7 @@
-'use strict';
-
 import angular from 'angular';
+
 const bulk = require('bulk-require');
-
 const servicesModule = angular.module('app.services', []);
-
 const services = bulk(__dirname, ['./**/!(*index|*.spec).js']);
 
 function declare(serviceMap) {
@@ -14,7 +11,7 @@ function declare(serviceMap) {
     if (!item) {
       return;
     }
-    
+
     if (item.fn && typeof item.fn === 'function') {
       servicesModule.service(item.name, item.fn);
     } else {

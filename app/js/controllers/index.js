@@ -1,10 +1,7 @@
-'use strict';
-
 import angular from 'angular';
+
 const bulk = require('bulk-require');
-
 const controllersModule = angular.module('app.controllers', []);
-
 const controllers = bulk(__dirname, ['./**/!(*index|*.spec).js']);
 
 function declare(controllerMap) {
@@ -16,8 +13,8 @@ function declare(controllerMap) {
     }
 
     if (item.fn && typeof item.fn === 'function') {
-      controllersModule.controller(item.name, item.fn); 
-    } else { 
+      controllersModule.controller(item.name, item.fn);
+    } else {
       declare(item);
     }
   });
