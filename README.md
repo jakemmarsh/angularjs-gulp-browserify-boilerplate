@@ -177,7 +177,7 @@ In this boilerplate, two end-to-end test examples are provided:
 
 More examples can be seen at the above link for Protractor.
 
-All e2e tests are run with `gulp protractor`. The command `npm run-script preprotractor` should be run once before running any Protractor tests (in order to update the webdrivers used by Selenium).
+All e2e tests are run with `gulp protractor`.
 
 **Notes:**
 
