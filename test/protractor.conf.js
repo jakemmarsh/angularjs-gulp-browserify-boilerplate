@@ -1,8 +1,6 @@
-'use strict';
-
 require('babel-core/register');
 
-const gulpConfig = require('../gulp/config');
+const gulpConfig = require('../gulp/config').default;
 
 exports.config = {
 
