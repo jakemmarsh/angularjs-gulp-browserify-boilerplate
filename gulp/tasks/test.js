@@ -3,7 +3,7 @@
 import gulp        from 'gulp';
 import runSequence from 'run-sequence';
 
-gulp.task('test', ['browserSync'], function() {
+gulp.task('test', function() {
 
   return runSequence('unit', 'protractor');
 
