@@ -1,7 +1,7 @@
 'use strict';
 
-import istanbul from 'browserify-istanbul';
-import isparta  from 'isparta';
+const istanbul = require('browserify-istanbul');
+const isparta  = require('isparta');
 
 const karmaBaseConfig = {
 
