@@ -2,28 +2,28 @@
 
 'use strict';
 
-describe('Unit: ExampleCtrl', function() {
+describe('Unit: ExampleCtrl', () => {
 
-  var ctrl;
+  let ctrl;
 
-  beforeEach(function() {
+  beforeEach(() => {
     // instantiate the app module
     angular.mock.module('app');
 
-    angular.mock.inject(function($controller) {
+    angular.mock.inject(($controller) => {
       ctrl = $controller('ExampleCtrl');
     });
   });
 
-  it('should exist', function() {
+  it('should exist', () => {
     expect(ctrl).toBeDefined();
   });
 
-  it('should have a number variable equal to 1234', function() {
+  it('should have a number variable equal to 1234', () => {
     expect(ctrl.number).toEqual(1234);
   });
 
-  it('should have a title variable equal to \'AngularJS, Gulp, and Browserify!\'', function() {
+  it('should have a title variable equal to \'AngularJS, Gulp, and Browserify!\'', () => {
     expect(ctrl.title).toEqual('AngularJS, Gulp, and Browserify! Written with keyboards and love!');
   });
 

@@ -2,31 +2,31 @@
 
 'use strict';
 
-describe('Unit: ExampleService', function() {
+describe('Unit: ExampleService', () => {
 
-  var http, service;
+  let http, service;
 
-  beforeEach(function() {
+  beforeEach(() => {
     // instantiate the app module
     angular.mock.module('app');
 
     // mock the service
-    angular.mock.inject(function($httpBackend, ExampleService) {
+    angular.mock.inject(($httpBackend, ExampleService) => {
       http = $httpBackend;
       service = ExampleService;
     });
   });
 
-  it('should exist', function() {
+  it('should exist', () => {
     expect(service).toBeDefined();
   });
 
-  it('should retrieve data', function(done) {
+  it('should retrieve data', (done) => {
     http.expect('GET', 'apiPath').respond(201, {data: 1234});
 
-    service.get().then(function(result) {
+    service.get().then((result) => {
       expect(result).toEqual({data: 1234});
-    }, function(error) {
+    }, (error) => {
       expect(error).toBeUndefined();
     }).then(done);
 

@@ -2,15 +2,15 @@
 
 'use strict';
 
-describe('Unit: ExampleDirective', function() {
+describe('Unit: ExampleDirective', () => {
 
-  var element, scope;
+  let element, scope;
 
-  beforeEach(function() {
+  beforeEach(() => {
     spyOn(window, 'alert');
     angular.mock.module('app');
 
-    angular.mock.inject(function($compile, $rootScope) {
+    angular.mock.inject(($compile, $rootScope) => {
       scope = $rootScope;
       element = angular.element('<div example-directive="{{message}}" title="{{title}}">Sample Directive</div>');
       scope.title = 'A sample title';
@@ -20,19 +20,19 @@ describe('Unit: ExampleDirective', function() {
     });
   });
 
-  it('should bind itself to the element', function() {
+  it('should bind itself to the element',() => {
     element.triggerHandler('click');
     expect(window.alert).toHaveBeenCalledWith('Element clicked: It doesn\'t hurt.');
   });
 
-  it('should update its bindings', function() {
+  it('should update its bindings', () => {
     scope.message = 'It hurts a bit.';
     scope.$digest();
     element.triggerHandler('click');
     expect(window.alert).toHaveBeenCalledWith('Element clicked: It hurts a bit.');
   });
 
-  it('should bind a title property to its template', function() {
+  it('should bind a title property to its template', () => {
     expect(element.find('h1').text()).toBe('A sample title');
   });
 

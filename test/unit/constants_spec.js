@@ -2,25 +2,25 @@
 
 'use strict';
 
-describe('Unit: Constants', function() {
+describe('Unit: Constants', () => {
 
-  var constants;
+  let constants;
 
-  beforeEach(function() {
+  beforeEach(() => {
     // instantiate the app module
     angular.mock.module('app');
 
     // mock the directive
-    angular.mock.inject(function(AppSettings) {
+    angular.mock.inject((AppSettings) => {
       constants = AppSettings;
     });
   });
 
-  it('should exist', function() {
+  it('should exist', () => {
     expect(constants).toBeDefined();
   });
 
-  it('should have an application name', function() {
+  it('should have an application name', () => {
     expect(constants.appTitle).toEqual('Example Application');
   });
 
