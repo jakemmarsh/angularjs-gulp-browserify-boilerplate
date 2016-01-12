@@ -73,7 +73,7 @@ const ciAdditions = {
   reporters: ['progress', 'coverage', 'saucelabs']
 };
 
-module.exports = function(config) {
+module.exports = (config) => {
   const isCI = process.env.CI;
   config.set(isCI ? Object.assign(karmaBaseConfig, ciAdditions) : karmaBaseConfig);
 };
