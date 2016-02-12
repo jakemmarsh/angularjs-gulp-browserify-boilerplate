@@ -1,12 +1,10 @@
 var wallabify = require('wallabify');
 var wallabyPostprocessor = wallabify({
-    insertGlobals: true,
     debug: true,
-    entryPatterns: 'app/**/*.js'
+    entryPatterns: ['test/wallaby-main.js', 'test/unit/**/*.js']
   }
   , function (bundler) {
-    bundler.exclude('mkdirp');
-    bundler.transform(require('babelify'));
+    bundler.transform(require('babelify'), {presets: ["es2015"]});
     bundler.transform(require('browserify-ngannotate'));
     bundler.transform(require('bulkify'));
     return bundler;
@@ -16,19 +14,14 @@ var wallabyPostprocessor = wallabify({
 module.exports = function (wallaby) {
   return {
     files: [
-      {pattern: 'node_modules/angular/angular.js', instrument: false},
-      {pattern: 'node_modules/angular-mocks/angular-mocks.js', instrument: false},
+      {pattern: 'node_modules/babel-polyfill/dist/polyfill.js', instrument: false},
+      {pattern: 'app/js/**/index.js', load: false, instrument: false},
       {pattern: 'app/js/**/*.js', load: false},
+      {pattern: 'test/wallaby-main.js', load: false}
     ],
     tests: [
       {pattern: 'test/unit/**/*.js', load: false}
     ],
-    compilers: {
-      '**/*.js': wallaby.compilers.babel({
-        babel: require('babel-core'),
-        presets: ['es2015']
-      })
-    },
 
     env: {
       type: 'browser',
