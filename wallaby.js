@@ -4,7 +4,7 @@ var wallabyPostprocessor = wallabify({
     entryPatterns: ['test/wallaby-main.js', 'test/unit/**/*.js']
   }
   , function (bundler) {
-    bundler.transform(require('babelify'), {presets: ["es2015"]});
+    bundler.transform(require('babelify'));
     bundler.transform(require('browserify-ngannotate'));
     bundler.transform(require('bulkify'));
     return bundler;
@@ -18,6 +18,7 @@ module.exports = function (wallaby) {
       {pattern: 'app/js/**/index.js', load: false, instrument: false},
       {pattern: 'app/js/**/*.js', load: false},
       {pattern: 'test/wallaby-main.js', load: false}
+      ".babelrc"
     ],
     tests: [
       {pattern: 'test/unit/**/*.js', load: false}
