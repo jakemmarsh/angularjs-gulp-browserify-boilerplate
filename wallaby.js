@@ -17,7 +17,7 @@ module.exports = function (wallaby) {
       {pattern: 'node_modules/babel-polyfill/dist/polyfill.js', instrument: false},
       {pattern: 'app/js/**/index.js', load: false, instrument: false},
       {pattern: 'app/js/**/*.js', load: false},
-      {pattern: 'test/wallaby-main.js', load: false}
+      {pattern: 'test/wallaby-main.js', load: false},
       ".babelrc"
     ],
     tests: [
