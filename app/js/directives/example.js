@@ -5,7 +5,7 @@ function ExampleDirective() {
     templateUrl: 'directives/example.html',
     scope: {
       title: '@',
-      message: '@exampleDirective'
+      message: '@clickMessage'
     },
     link: (scope, element) => {
       element.on('click', () => {
