@@ -74,6 +74,6 @@ const ciAdditions = {
 };
 
 module.exports = function(config) {
-  const isCI = process.env.CI && process.env.TRAVIS_PULL_REQUEST;
+  const isCI = process.env.CI && Boolean(process.env.TRAVIS_PULL_REQUEST);
   config.set(isCI ? Object.assign(karmaBaseConfig, ciAdditions) : karmaBaseConfig);
 };
