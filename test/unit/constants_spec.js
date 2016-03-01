@@ -1,5 +1,3 @@
-/*global angular */
-
 'use strict';
 
 describe('Unit: Constants', function() {

@@ -1,4 +1,4 @@
-/*global angular, module, browser*/
+/* global module */
 
 'use strict';
 
