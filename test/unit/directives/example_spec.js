@@ -11,7 +11,7 @@ describe('Unit: ExampleDirective', function() {
     spyOn(window, 'alert');
     angular.mock.module('app');
 
-    angular.mock.inject(function($compile, $rootScope) {
+    angular.mock.inject(($compile, $rootScope) => {
       scope = $rootScope;
       scope.title = 'A sample title';
       scope.message = 'A sample message';
