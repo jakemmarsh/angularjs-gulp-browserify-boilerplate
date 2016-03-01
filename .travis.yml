@@ -4,7 +4,8 @@ node_js:
 sudo: false
 
 script:
-  - ./node_modules/.bin/gulp lint test
+  - ./node_modules/.bin/gulp eslint
+  - ./node_modules/.bin/gulp test
 
 cache:
   directories:
