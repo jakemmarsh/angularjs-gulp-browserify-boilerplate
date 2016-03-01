@@ -12,7 +12,8 @@ const karmaBaseConfig = {
   frameworks: ['jasmine', 'browserify'],
 
   preprocessors: {
-    'app/js/**/*.js': ['browserify', 'coverage']
+    'app/js/**/*.js': ['browserify', 'coverage'],
+    'test/**/*.js': ['browserify']
   },
 
   browsers: ['Chrome'],
