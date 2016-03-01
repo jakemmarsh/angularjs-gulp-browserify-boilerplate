@@ -4,7 +4,8 @@
 
 describe('Unit: ExampleDirective', function() {
 
-  var element, scope;
+  let element;
+  let scope;
 
   beforeEach(function() {
     spyOn(window, 'alert');
@@ -12,9 +13,13 @@ describe('Unit: ExampleDirective', function() {
 
     angular.mock.inject(function($compile, $rootScope) {
       scope = $rootScope;
-      element = angular.element('<div example-directive="{{message}}" title="{{title}}">Sample Directive</div>');
       scope.title = 'A sample title';
-      scope.message = 'It doesn\'t hurt.';
+      scope.message = 'A sample message';
+
+      element = angular.element(
+        '<div example-directive title="{{title}}" click-message="{{message}}">Sample Directive</div>'
+      );
+
       $compile(element)(scope);
       scope.$digest();
     });
@@ -22,18 +27,18 @@ describe('Unit: ExampleDirective', function() {
 
   it('should bind itself to the element', function() {
     element.triggerHandler('click');
-    expect(window.alert).toHaveBeenCalledWith('Element clicked: It doesn\'t hurt.');
+    expect(window.alert).toHaveBeenCalledWith(`Element clicked: ${scope.message}`);
   });
 
   it('should update its bindings', function() {
-    scope.message = 'It hurts a bit.';
+    scope.message = 'A new sample message';
     scope.$digest();
     element.triggerHandler('click');
-    expect(window.alert).toHaveBeenCalledWith('Element clicked: It hurts a bit.');
+    expect(window.alert).toHaveBeenCalledWith(`Element clicked: ${scope.message}`);
   });
 
   it('should bind a title property to its template', function() {
-    expect(element.find('h1').text()).toBe('A sample title');
+    expect(element.find('h1').text()).toBe(`Directive title: ${scope.title}`);
   });
 
 });
