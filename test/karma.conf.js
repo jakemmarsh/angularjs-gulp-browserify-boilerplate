@@ -3,56 +3,66 @@
 const istanbul = require('browserify-istanbul');
 const isparta = require('isparta');
 
-const karmaBaseConfig = {
+function makeConfig(opts) {
+    const baseConfig = {
+        basePath: '../',
 
-    basePath: '../',
+        singleRun: true,
 
-    singleRun: true,
+        frameworks: ['jasmine', 'browserify'],
 
-    frameworks: ['jasmine', 'browserify'],
+        preprocessors: {
+            'app/js/**/*!(spec).js': ['browserify'],
+        },
 
-    preprocessors: {
-        'app/js/**/*!(spec).js': ['browserify', 'coverage'],
-    },
+        browsers: ['Chrome'],
 
-    browsers: ['Chrome'],
+        reporters: ['progress'],
 
-    reporters: ['progress', 'coverage'],
+        autoWatch: true,
 
-    autoWatch: true,
+        browserify: {
+            debug: true,
+            extensions: ['.js'],
+            transform: [
+                'babelify',
+                'browserify-ngannotate',
+                'bulkify',
+            ]
+        },
 
-    browserify: {
-        debug: true,
-        extensions: ['.js'],
-        transform: [
-            'babelify',
-            'browserify-ngannotate',
-            'bulkify',
-            istanbul({
-                instrumenter: isparta,
-                ignore: ['**/node_modules/**', '**/*.spec.js']
-            })
+        proxies: {
+            '/': 'http://localhost:9876/'
+        },
+
+        urlRoot: '/__karma__/',
+
+        files: [
+            // app-specific code
+            'app/js/main.js',
+
+            // 3rd-party resources
+            'node_modules/angular-mocks/angular-mocks.js',
+
+            // test files
+            'app/js/**/*.spec.js'
         ]
-    },
 
-    proxies: {
-        '/': 'http://localhost:9876/'
-    },
+    };
 
-    urlRoot: '/__karma__/',
+    opts = opts || {};
 
-    files: [
-        // app-specific code
-        'app/js/main.js',
+    if (opts.coverage) {
+        baseConfig.preprocessors.push('coverage');
+        baseConfig.reporters.push('coverage');
+        baseConfig.browserify.transform.push(istanbul({
+            instrumenter: isparta,
+            ignore: ['**/node_modules/**', '**/*.spec.js']
+        }));
+    }
 
-        // 3rd-party resources
-        'node_modules/angular-mocks/angular-mocks.js',
-
-        // test files
-        'app/js/**/*.spec.js'
-    ]
-
-};
+    return baseConfig;
+}
 
 const customLaunchers = {
     chrome: {
@@ -74,6 +84,15 @@ const ciAdditions = {
 };
 
 module.exports = function(config) {
+    let baseConfig = makeConfig({
+        // no coverage for TDD
+        coverage: config.singleRun
+    });
+
     const isCI = process.env.CI && Boolean(process.env.TRAVIS_PULL_REQUEST);
-    config.set(isCI ? Object.assign(karmaBaseConfig, ciAdditions) : karmaBaseConfig);
+    if (isCI) {
+        baseConfig = Object.assign(baseConfig, ciAdditions);
+    }
+
+    config.set(baseConfig);
 };
