@@ -4,7 +4,7 @@
         {
             "path": ".",
             "file_exclude_patterns": [],
-            "folder_exclude_patterns": ["coverage", "dist", "node_modules"]
+            "folder_exclude_patterns": ["coverage", "dist", "build", "node_modules"]
         },
     ],
 }

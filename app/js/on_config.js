@@ -4,14 +4,13 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider) {
     $locationProvider.html5Mode(true);
 
     $stateProvider
-        .state('Home', {
-            url: '/',
-            controller: 'ExampleCtrl as home',
-            templateUrl: 'home.html',
-            title: 'Home'
+        .state('movies', {
+            url: '/movies',
+            template: '<movies></movies>',
+            title: 'Movies',
         });
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/movies');
 
 }
 
