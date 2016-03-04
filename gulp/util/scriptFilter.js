@@ -6,6 +6,6 @@ import path from 'path';
 // accidental inclusion of possible hidden files
 export default function(name) {
 
-  return /(\.(js)$)/i.test(path.extname(name));
+    return /(\.(js)$)/i.test(path.extname(name));
 
 };

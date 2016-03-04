@@ -2,14 +2,14 @@
 
 import express from 'express';
 
-export default function testServer({port, dir}) {
+export default function testServer({ port, dir }) {
 
-  const app = express();
+    const app = express();
 
-  app.use(express.static(dir));
+    app.use(express.static(dir));
 
-  return new Promise((res, rej) => {
-    const server = app.listen(port, () => res(server));
-  });
+    return new Promise((res, rej) => {
+        const server = app.listen(port, () => res(server));
+    });
 
 }
