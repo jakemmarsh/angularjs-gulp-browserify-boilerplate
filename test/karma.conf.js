@@ -12,8 +12,7 @@ const karmaBaseConfig = {
     frameworks: ['jasmine', 'browserify'],
 
     preprocessors: {
-        'app/js/**/*.js': ['browserify', 'coverage'],
-        'test/**/*.js': ['browserify']
+        'app/js/**/*!(spec).js': ['browserify', 'coverage'],
     },
 
     browsers: ['Chrome'],
@@ -31,7 +30,7 @@ const karmaBaseConfig = {
             'bulkify',
             istanbul({
                 instrumenter: isparta,
-                ignore: ['**/node_modules/**', '**/test/**']
+                ignore: ['**/node_modules/**', '**/*.spec.js']
             })
         ]
     },
@@ -50,7 +49,7 @@ const karmaBaseConfig = {
         'node_modules/angular-mocks/angular-mocks.js',
 
         // test files
-        'test/unit/**/*.js'
+        'app/js/**/*.spec.js'
     ]
 
 };
