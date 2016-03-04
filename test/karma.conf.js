@@ -60,6 +60,11 @@ function makeConfig(opts) {
             instrumenter: isparta,
             ignore: ['**/node_modules/**', '**/*.spec.js']
         }));
+        baseConfig.coverageReporter = {
+            type: 'lcov',
+            dir: 'coverage',
+            subdir: '.'
+        };
     }
 
     return baseConfig;
@@ -81,7 +86,7 @@ const ciAdditions = {
     },
     browsers: Object.keys(customLaunchers),
     customLaunchers: customLaunchers,
-    reporters: ['progress', 'coverage', 'saucelabs']
+    reporters: ['progress', 'coverage', 'saucelabs'],
 };
 
 module.exports = function(config) {
