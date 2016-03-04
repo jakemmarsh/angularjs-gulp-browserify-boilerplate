@@ -4,7 +4,7 @@ const istanbul = require('browserify-istanbul');
 const isparta = require('isparta');
 
 function makeConfig(opts) {
-    const appFilesGlob = 'app/js/**/*!(spec).js';
+    const appFilesGlob = 'app/js/**/!(.spec).js';
     const baseConfig = {
         basePath: '../',
 
