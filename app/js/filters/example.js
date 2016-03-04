@@ -1,12 +1,12 @@
 function ExampleFilter() {
 
-  return function(input) {
-    return input.replace(/keyboard/ig,'leopard');
-  };
+    return function(input) {
+        return input.replace(/keyboard/ig, 'leopard');
+    };
 
 }
 
 export default {
-  name: 'ExampleFilter',
-  fn: ExampleFilter
+    name: 'ExampleFilter',
+    fn: ExampleFilter
 };

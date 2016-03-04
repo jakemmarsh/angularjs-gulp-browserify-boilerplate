@@ -16,9 +16,9 @@ export default {
     },
 
     scripts: {
-        src: 'app/js/**/*.js',
+        src: 'app/js/**/!(.spec).js',
         dest: 'build/js',
-        test: 'test/**/*.js'
+        test: 'app/js/**/*.spec.js',
     },
 
     images: {

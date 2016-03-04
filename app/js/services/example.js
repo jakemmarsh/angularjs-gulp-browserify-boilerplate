@@ -1,23 +1,23 @@
 function ExampleService($http) {
-  'ngInject';
+    'ngInject';
 
-  const service = {};
+    const service = {};
 
-  service.get = function() {
-    return new Promise((resolve, reject) => {
-      $http.get('apiPath').success((data) => {
-        resolve(data);
-      }).error((err, status) => {
-        reject(err, status);
-      });
-    });
-  };
+    service.get = function() {
+        return new Promise((resolve, reject) => {
+            $http.get('apiPath').success((data) => {
+                resolve(data);
+            }).error((err, status) => {
+                reject(err, status);
+            });
+        });
+    };
 
-  return service;
+    return service;
 
 }
 
 export default {
-  name: 'ExampleService',
-  fn: ExampleService
+    name: 'ExampleService',
+    fn: ExampleService
 };
