@@ -1,17 +1,16 @@
 function OnConfig($stateProvider, $locationProvider, $urlRouterProvider) {
-  'ngInject';
+    'ngInject';
 
-  $locationProvider.html5Mode(true);
+    $locationProvider.html5Mode(true);
 
-  $stateProvider
-  .state('Home', {
-    url: '/',
-    controller: 'ExampleCtrl as home',
-    templateUrl: 'home.html',
-    title: 'Home'
-  });
+    $stateProvider
+        .state('movies', {
+            url: '/movies',
+            template: '<movies></movies>',
+            title: 'Movies',
+        });
 
-  $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/movies');
 
 }
 

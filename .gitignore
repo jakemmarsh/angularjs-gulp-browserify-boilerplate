@@ -26,5 +26,8 @@ bower_components
 build
 templates.js
 
-#webstorm
+# webstorm
 .idea
+
+# sublime text
+*.sublime-workspace

@@ -1,80 +1,104 @@
 'use strict';
 
 const istanbul = require('browserify-istanbul');
-const isparta  = require('isparta');
+const isparta = require('isparta');
 
-const karmaBaseConfig = {
+function makeConfig(opts) {
+    const appFilesGlob = 'app/js/**/!(.spec).js';
+    const baseConfig = {
+        basePath: '../',
 
-  basePath: '../',
+        singleRun: true,
 
-  singleRun: true,
+        frameworks: ['jasmine', 'browserify'],
 
-  frameworks: ['jasmine', 'browserify'],
+        preprocessors: {
+            [appFilesGlob]: ['browserify'],
+        },
 
-  preprocessors: {
-    'app/js/**/*.js': ['browserify', 'coverage'],
-    'test/**/*.js': ['browserify']
-  },
+        browsers: ['Chrome'],
 
-  browsers: ['Chrome'],
+        reporters: ['progress'],
 
-  reporters: ['progress', 'coverage'],
+        autoWatch: true,
 
-  autoWatch: true,
+        browserify: {
+            debug: true,
+            extensions: ['.js'],
+            transform: [
+                'babelify',
+                'browserify-ngannotate',
+                'bulkify',
+            ]
+        },
 
-  browserify: {
-    debug: true,
-    extensions: ['.js'],
-    transform: [
-      'babelify',
-      'browserify-ngannotate',
-      'bulkify',
-      istanbul({
-        instrumenter: isparta,
-        ignore: ['**/node_modules/**', '**/test/**']
-      })
-    ]
-  },
+        proxies: {
+            '/': 'http://localhost:9876/'
+        },
 
-  proxies: {
-    '/': 'http://localhost:9876/'
-  },
+        urlRoot: '/__karma__/',
 
-  urlRoot: '/__karma__/',
+        files: [
+            // app-specific code
+            'app/js/main.js',
 
-  files: [
-    // app-specific code
-    'app/js/main.js',
+            // 3rd-party resources
+            'node_modules/angular-mocks/angular-mocks.js',
 
-    // 3rd-party resources
-    'node_modules/angular-mocks/angular-mocks.js',
+            // test files
+            'app/js/**/*.spec.js'
+        ]
 
-    // test files
-    'test/unit/**/*.js'
-  ]
+    };
 
-};
+    opts = opts || {};
+
+    if (opts.coverage) {
+        baseConfig.preprocessors[appFilesGlob].push('coverage');
+        baseConfig.reporters.push('coverage');
+        baseConfig.browserify.transform.push(istanbul({
+            instrumenter: isparta,
+            ignore: ['**/node_modules/**', '**/*.spec.js'],
+        }));
+        baseConfig.coverageReporter = {
+            type: 'lcov',
+            dir: 'coverage',
+            subdir: '.'
+        };
+    }
+
+    return baseConfig;
+}
 
 const customLaunchers = {
-  chrome: {
-    base: 'SauceLabs',
-    browserName: 'chrome'
-  }
+    chrome: {
+        base: 'SauceLabs',
+        browserName: 'chrome'
+    }
 };
 
 const ciAdditions = {
-  sauceLabs: {
-    testName: 'Karma Unit Tests',
-    startConnect: false,
-    build: process.env.TRAVIS_BUILD_NUMBER,
-    tunnelIdentifier: process.env.TRAVIS_JOB_NUMBER
-  },
-  browsers: Object.keys(customLaunchers),
-  customLaunchers: customLaunchers,
-  reporters: ['progress', 'coverage', 'saucelabs']
+    sauceLabs: {
+        testName: 'Karma Unit Tests',
+        startConnect: false,
+        build: process.env.TRAVIS_BUILD_NUMBER,
+        tunnelIdentifier: process.env.TRAVIS_JOB_NUMBER
+    },
+    browsers: Object.keys(customLaunchers),
+    customLaunchers: customLaunchers,
+    reporters: ['progress', 'coverage', 'saucelabs'],
 };
 
 module.exports = function(config) {
-  const isCI = process.env.CI && Boolean(process.env.TRAVIS_PULL_REQUEST);
-  config.set(isCI ? Object.assign(karmaBaseConfig, ciAdditions) : karmaBaseConfig);
+    let baseConfig = makeConfig({
+        // no coverage for TDD
+        coverage: config.singleRun
+    });
+
+    const isCI = process.env.CI && Boolean(process.env.TRAVIS_PULL_REQUEST);
+    if (isCI) {
+        baseConfig = Object.assign(baseConfig, ciAdditions);
+    }
+
+    config.set(baseConfig);
 };

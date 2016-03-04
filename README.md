@@ -1,16 +1,16 @@
-angularjs-gulp-browserify-boilerplate
+angularjs-boilerplate
 =====================================
-[![Build Status](https://travis-ci.org/jakemmarsh/angularjs-gulp-browserify-boilerplate.svg)](https://travis-ci.org/jakemmarsh/angularjs-gulp-browserify-boilerplate) [![devDependency Status](https://david-dm.org/jakemmarsh/angularjs-gulp-browserify-boilerplate/dev-status.svg)](https://david-dm.org/jakemmarsh/angularjs-gulp-browserify-boilerplate#info=devDependencies)
+[![Build Status](https://travis-ci.org/mzahor/angularjs-boilerplate.svg)](https://travis-ci.org/mzahor/angularjs-boilerplate.svg?branch=master) [![devDependency Status](https://david-dm.org/mzahor/angularjs-boilerplate/dev-status.svg)](https://david-dm.org/mzahor/angularjs-boilerplate#info=devDependencies) [![Coverage Status](https://coveralls.io/repos/github/mzahor/angularjs-boilerplate/badge.svg?branch=master)](https://coveralls.io/github/mzahor/angularjs-boilerplate?branch=master)
 
-A boilerplate using AngularJS, SASS, Gulp, and Browserify that also utilizes [these best AngularJS practices](https://github.com/toddmotto/angularjs-styleguide)  and Gulp best practices from [this resource](https://github.com/greypants/gulp-starter).
+Based on [great boilerplate](https://github.com/jakemmarsh/angularjs-gulp-browserify-boilerplate) by jakemmarsh.
 
-[View contributors](https://github.com/jakemmarsh/angularjs-gulp-browserify-boilerplate/graphs/contributors)
+[View contributors](https://github.com/mzahor/angularjs-boilerplate/graphs/contributors)
 
 ---
 
 ### Getting up and running
 
-1. Clone this repo from `https://github.com/jakemmarsh/angularjs-gulp-browserify-boilerplate.git`
+1. Clone this repo from `https://github.com/mzahor/angularjs-boilerplate.git`
 2. Run `npm install` from the root directory
 3. Run `gulp dev` (may require installing Gulp globally `npm install gulp -g`)
 4. Your browser will automatically be opened and directed to the browser-sync proxy address
