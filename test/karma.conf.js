@@ -4,6 +4,7 @@ const istanbul = require('browserify-istanbul');
 const isparta = require('isparta');
 
 function makeConfig(opts) {
+    const appFilesGlob = 'app/js/**/*!(spec).js';
     const baseConfig = {
         basePath: '../',
 
@@ -12,7 +13,7 @@ function makeConfig(opts) {
         frameworks: ['jasmine', 'browserify'],
 
         preprocessors: {
-            'app/js/**/*!(spec).js': ['browserify'],
+            [appFilesGlob]: ['browserify'],
         },
 
         browsers: ['Chrome'],
@@ -53,7 +54,7 @@ function makeConfig(opts) {
     opts = opts || {};
 
     if (opts.coverage) {
-        baseConfig.preprocessors.push('coverage');
+        baseConfig.preprocessors[appFilesGlob].push('coverage');
         baseConfig.reporters.push('coverage');
         baseConfig.browserify.transform.push(istanbul({
             instrumenter: isparta,
