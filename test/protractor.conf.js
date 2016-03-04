@@ -5,6 +5,8 @@ const gulpConfig = require('../gulp/config').default;
 exports.config = {
 
     allScriptsTimeout: 11000,
+    seleniumServerJar: '../node_modules/protractor/selenium/selenium-server-standalone-2.51.0.jar',
+    chromeDriver: '../node_modules/protractor/selenium/chromedriver',
 
     baseUrl: `http://localhost:${gulpConfig.browserPort}/`,
 

@@ -5,13 +5,10 @@ import testServer from '../util/testServer';
 import express from 'express';
 import gulp from 'gulp';
 import {
-    protractor,
-    webdriver
+    protractor
 } from 'gulp-protractor';
 
-gulp.task('webdriver', webdriver);
-
-gulp.task('protractor', ['prod', 'webdriver'], function(cb) {
+gulp.task('protractor', ['prod'], function(cb) {
 
     const testFiles = gulp.src('test/e2e/**/*.js');
 
