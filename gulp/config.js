@@ -8,6 +8,8 @@ export default {
     sourceDir: './app/',
     buildDir: './build/',
 
+    covDir: './coverage/',
+
     styles: {
         src: 'app/styles/**/*.scss',
         dest: 'build/css',

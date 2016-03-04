@@ -58,7 +58,7 @@ function makeConfig(opts) {
         baseConfig.reporters.push('coverage');
         baseConfig.browserify.transform.push(istanbul({
             instrumenter: isparta,
-            ignore: ['**/node_modules/**', '**/*.spec.js']
+            ignore: ['**/node_modules/**', '**/*.spec.js'],
         }));
         baseConfig.coverageReporter = {
             type: 'lcov',
