@@ -1,6 +1,6 @@
 angularjs-boilerplate
 =====================================
-[![Build Status](https://travis-ci.org/mzahor/angularjs-boilerplate.svg)](https://travis-ci.org/mzahor/angularjs-boilerplate.svg?branch=master) [![devDependency Status](https://david-dm.org/mzahor/angularjs-boilerplate/dev-status.svg)](https://david-dm.org/mzahor/angularjs-boilerplate#info=devDependencies)
+[![Build Status](https://travis-ci.org/mzahor/angularjs-boilerplate.svg)](https://travis-ci.org/mzahor/angularjs-boilerplate.svg?branch=master) [![devDependency Status](https://david-dm.org/mzahor/angularjs-boilerplate/dev-status.svg)](https://david-dm.org/mzahor/angularjs-boilerplate#info=devDependencies)[![Coverage Status](https://coveralls.io/repos/github/mzahor/angularjs-boilerplate/badge.svg?branch=master)](https://coveralls.io/github/mzahor/angularjs-boilerplate?branch=master)
 
 Based on [great boilerplate](https://github.com/jakemmarsh/angularjs-gulp-browserify-boilerplate) by jakemmarsh.
 
