@@ -16,7 +16,7 @@ gulp.task('protractor', ['prod', 'webdriver'], function(cb) {
   const testFiles = gulp.src('test/e2e/**/*.js');
 
   testServer({
-    port: config.browserPort,
+    port: config.testPort,
     dir: config.buildDir
   }).then((server) => {
     testFiles.pipe(protractor({
