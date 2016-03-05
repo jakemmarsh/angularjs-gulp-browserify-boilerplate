@@ -79,7 +79,7 @@
   },
   "scripts": {
     "test": "./node_modules/.bin/gulp test",
-    "webdriver-update": "./node_modules/.bin/webdriver-manager update",
+    "webdriver-update": "./node_modules/gulp-protractor/node_modules/protractor/bin/webdriver-manager update",
     "postinstall": "npm run webdriver-update"
   },
   "license": "MIT"
