@@ -2,7 +2,6 @@
 
 import config        from '../config';
 import gulp          from 'gulp';
-import browserSync   from 'browser-sync';
 import merge         from 'merge-stream';
 import templateCache from 'gulp-angular-templatecache';
 
@@ -18,8 +17,7 @@ gulp.task('views', function() {
     .pipe(templateCache({
       standalone: true
     }))
-    .pipe(gulp.dest(config.views.dest))
-    .pipe(browserSync.stream());
+    .pipe(gulp.dest(config.views.dest));
 
   return merge(indexFile, views);
 
