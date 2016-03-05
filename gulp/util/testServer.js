@@ -8,8 +8,10 @@ export default function testServer({port, dir}) {
 
   app.use(express.static(dir));
 
-  return new Promise((res, rej) => {
-    const server = app.listen(port, () => res(server));
+  return new Promise((resolve) => {
+    const server = app.listen(port, () => {
+      resolve(server);
+    });
   });
 
 }

@@ -23,7 +23,7 @@ function createSourcemap() {
 
 // Based on: http://blog.avisi.nl/2014/04/25/how-to-keep-a-fast-build-with-browserify-and-reactjs/
 function buildScript(file) {
-  
+
   let bundler = browserify({
     entries: [config.sourceDir + 'js/' + file],
     debug: createSourcemap(),
@@ -62,7 +62,7 @@ function buildScript(file) {
       .pipe(gulpif(createSourcemap(), buffer()))
       .pipe(gulpif(createSourcemap(), sourcemaps.init({ loadMaps: true })))
       .pipe(gulpif(global.isProd, streamify(uglify({
-        compress: { drop_console: true }
+        compress: { drop_console: true } // eslint-disable-line camelcase
       }))))
       .pipe(gulpif(createSourcemap(), sourcemaps.write(sourceMapLocation)))
       .pipe(gulp.dest(config.scripts.dest))

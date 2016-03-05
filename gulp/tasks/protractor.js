@@ -1,9 +1,8 @@
 'use strict';
 
-import config       from '../config';
-import testServer   from '../util/testServer';
-import express      from 'express';
-import gulp         from 'gulp';
+import config     from '../config';
+import testServer from '../util/testServer';
+import gulp       from 'gulp';
 import {
   protractor,
   webdriver
