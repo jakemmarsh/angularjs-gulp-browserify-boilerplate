@@ -6,7 +6,7 @@ exports.config = {
 
   allScriptsTimeout: 11000,
 
-  baseUrl: `http://localhost:${gulpConfig.browserPort}/`,
+  baseUrl: `http://localhost:${gulpConfig.testPort}/`,
 
   capabilities: {
     browserName: 'chrome',
