@@ -179,11 +179,6 @@ More examples can be seen at the above link for Protractor.
 
 All e2e tests are run with `gulp protractor`.
 
-**Notes:**
-
-- before running the Protractor tests, the application server must be running (start it with `gulp dev`)
-- the Protractor library used for the end-to-end tests may require installing the [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html) beforehand.
-
 ##### Unit Tests
 
 Unit tests are used to test a single module (or "unit") at a time in order to ensure that each module performs as intended individually. In AngularJS this could be thought of as a single controller, directive, filter, service, etc. That is how the unit tests are organized in this boilerplate.
