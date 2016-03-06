@@ -69,7 +69,6 @@
     "karma-sauce-launcher": "^0.3.0",
     "merge-stream": "^1.0.0",
     "pretty-hrtime": "^1.0.1",
-    "protractor": "^3.0.0",
     "run-sequence": "^1.1.5",
     "tiny-lr": "^0.2.1",
     "uglifyify": "^3.0.1",
