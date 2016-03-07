@@ -6,12 +6,12 @@ export default function(error) {
 
   if( !global.isProd ) {
 
-    var args = Array.prototype.slice.call(arguments);
+    let args = Array.prototype.slice.call(arguments);
 
     // Send error to notification center with gulp-notify
     notify.onError({
       title: 'Compile Error',
-      message: '<%= error.message %>'
+      message: `\r\n${error}`
     }).apply(this, args);
 
     // Keep gulp from hanging on this task
@@ -20,7 +20,7 @@ export default function(error) {
   } else {
     // Log the error and stop the process
     // to prevent broken code from building
-    console.log(error);
+    console.log(`${gutil.colors.red(error)}`);
     process.exit(1);
   }
 
