@@ -1,6 +1,7 @@
 'use strict';
 
 import notify from 'gulp-notify';
+import gutil  from 'gulp-util';
 
 export default function(error) {
 
