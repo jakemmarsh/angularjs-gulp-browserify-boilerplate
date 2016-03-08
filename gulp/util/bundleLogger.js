@@ -12,17 +12,13 @@ export default {
 
   start() {
     let startTime = process.hrtime();
-    gutil.log('Starting', `
-      '${gutil.colors.cyan('bundle')}'...
-    `);
+    gutil.log('Starting', `'${gutil.colors.cyan('bundle')}'...`);
   },
 
   end() {
     let taskTime = process.hrtime(startTime);
     let prettyTime = prettyHrtime(taskTime);
-    gutil.log('Finished', `
-      '${gutil.colors.cyan('bundle')}' after ${gutil.colors.magenta(prettyTime)}
-    `);
+    gutil.log('Finished', `'${gutil.colors.cyan('bundle')}' after ${gutil.colors.magenta(prettyTime)}`);
   }
 
 };
