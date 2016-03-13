@@ -12,15 +12,15 @@ export default {
   
   let startTime;
 
-  start() {
+  start(taskName) {
     startTime = process.hrtime();
-    gutil.log('Starting', `'${gutil.colors.cyan('bundle')}'...`);
+    gutil.log('Starting', `'${gutil.colors.cyan(taskName)}'...`);  // start('bundle');
   },
 
-  end() {
+  end(taskName) {
     let taskTime = process.hrtime(startTime);
     let prettyTime = prettyHrtime(taskTime);
-    gutil.log('Finished', `'${gutil.colors.cyan('bundle')}' after ${gutil.colors.magenta(prettyTime)}`);
+    gutil.log('Finished', `'${gutil.colors.cyan(taskName)}' after ${gutil.colors.magenta(prettyTime)}`);  // end('bundle');
   }
 
 };
