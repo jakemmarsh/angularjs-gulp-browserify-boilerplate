@@ -9,9 +9,11 @@ import gutil        from 'gulp-util';
 import prettyHrtime from 'pretty-hrtime';
 
 export default {
+  
+  let startTime;
 
   start() {
-    let startTime = process.hrtime();
+    startTime = process.hrtime();
     gutil.log('Starting', `'${gutil.colors.cyan('bundle')}'...`);
   },
 
