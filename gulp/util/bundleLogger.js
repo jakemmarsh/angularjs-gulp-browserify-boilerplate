@@ -8,19 +8,19 @@
 import gutil        from 'gulp-util';
 import prettyHrtime from 'pretty-hrtime';
 
-var startTime;
-
 export default {
+  
+  let startTime;
 
-  start() {
+  start(taskName) {
     startTime = process.hrtime();
-    gutil.log('Running', gutil.colors.green('\'bundle\'') + '...');
+    gutil.log('Starting', `'${gutil.colors.cyan(taskName)}'...`);  // start('bundle');
   },
 
-  end() {
-    var taskTime = process.hrtime(startTime);
-    var prettyTime = prettyHrtime(taskTime);
-    gutil.log('Finished', gutil.colors.green('\'bundle\''), 'in', gutil.colors.magenta(prettyTime));
+  end(taskName) {
+    let taskTime = process.hrtime(startTime);
+    let prettyTime = prettyHrtime(taskTime);
+    gutil.log('Finished', `'${gutil.colors.cyan(taskName)}' after ${gutil.colors.magenta(prettyTime)}`);  // end('bundle');
   }
 
 };
