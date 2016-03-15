@@ -5,12 +5,14 @@ import testServer from '../util/testServer';
 import gulp       from 'gulp';
 import {
   protractor,
+  webdriver_update, // eslint-disable-line camelcase
   webdriver
 } from 'gulp-protractor';
 
+gulp.task('webdriverUpdate', webdriver_update);
 gulp.task('webdriver', webdriver);
 
-gulp.task('protractor', ['prod', 'webdriver'], function(cb) {
+gulp.task('protractor', ['prod', 'webdriverUpdate', 'webdriver'], function(cb) {
 
   const testFiles = gulp.src('test/e2e/**/*.js');
 
