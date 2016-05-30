@@ -32,6 +32,7 @@ export default {
 
   assetExtensions: [
     'js',
+    'js.map',
     'css',
     'png',
     'jpe?g',
