@@ -5,7 +5,7 @@ function OnRun($rootScope, AppSettings) {
   $rootScope.$on('$stateChangeSuccess', (event, toState) => {
     $rootScope.pageTitle = '';
 
-    if ( toState.title ) {
+    if (toState.title) {
       $rootScope.pageTitle += toState.title;
       $rootScope.pageTitle += ' \u2014 ';
     }
