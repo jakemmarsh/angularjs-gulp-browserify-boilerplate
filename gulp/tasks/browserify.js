@@ -13,6 +13,8 @@ import uglify       from 'gulp-uglify';
 import browserSync  from 'browser-sync';
 import debowerify   from 'debowerify';
 import ngAnnotate   from 'browserify-ngannotate';
+import bulkify      from 'bulkify';
+import envify       from 'envify';
 import handleErrors from '../util/handleErrors';
 import bundleLogger from '../util/bundleLogger';
 import config       from '../config';
@@ -37,11 +39,12 @@ function buildScript(file) {
   }
 
   const transforms = [
-    { 'name':babelify, 'options': {}},
-    { 'name':debowerify, 'options': {}},
-    { 'name':ngAnnotate, 'options': {}},
-    { 'name':'brfs', 'options': {}},
-    { 'name':'bulkify', 'options': {}}
+    { name: babelify, options: {} },
+    { name: debowerify, options: {} },
+    { name: ngAnnotate, options: {} },
+    { name: 'brfs', options: {} },
+    { name: bulkify, options: {} },
+    { name: envify, options: {} }
   ];
 
   transforms.forEach(function(transform) {

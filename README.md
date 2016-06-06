@@ -12,11 +12,11 @@ A boilerplate using AngularJS, SASS, Gulp, and Browserify that also utilizes [th
 
 1. Clone this repo from `https://github.com/jakemmarsh/angularjs-gulp-browserify-boilerplate.git`
 2. Run `npm install` from the root directory
-3. Run `gulp dev` (may require installing Gulp globally `npm install gulp -g`)
+3. Run `npm run dev`
 4. Your browser will automatically be opened and directed to the browser-sync proxy address
-5. To prepare assets for production, run the `gulp prod` task (Note: the production task does not fire up the express server, and won't provide you with browser-sync's live reloading. Simply use `gulp dev` during development. More information below)
+5. To prepare assets for production, run the `npm run build` script (Note: the production task does not fire up the express server, and won't provide you with browser-sync's live reloading. Simply use `npm run dev` during development. More information below)
 
-Now that `gulp dev` is running, the server is up as well and serving files from the `/build` directory. Any changes in the `/app` directory will be automatically processed by Gulp and the changes will be injected to any open browsers pointed at the proxy address.
+Now that `npm run dev` is running, the server is up as well and serving files from the `/build` directory. Any changes in the `/app` directory will be automatically processed by Gulp and the changes will be injected to any open browsers pointed at the proxy address.
 
 #### Other resources
 
@@ -109,7 +109,7 @@ Gulp is a "streaming build system", providing a very fast and efficient method f
 
 ##### Web Server
 
-Gulp is used here to provide a very basic node/Express web server for viewing and testing your application as you build. It serves static files from the `build/` directory, leaving routing up to AngularJS. All Gulp tasks are configured to automatically reload the server upon file changes. The application is served to `localhost:3002` once you run the `gulp` task. To take advantage of the fast live reload injection provided by browser-sync, you must load the site at the proxy address (within this boilerplate will by default be `localhost:3000`). To change the settings related to live-reload or browser-sync, you can access the UI at `localhost:3001`.
+Gulp is used here to provide a very basic node/Express web server for viewing and testing your application as you build. It serves static files from the `build/` directory, leaving routing up to AngularJS. All Gulp tasks are configured to automatically reload the server upon file changes. The application is served to `localhost:3002` once you run the `npm run dev` script. To take advantage of the fast live reload injection provided by browser-sync, you must load the site at the proxy address (within this boilerplate will by default be `localhost:3000`). To change the settings related to live-reload or browser-sync, you can access the UI at `localhost:3001`.
 
 ##### Scripts
 
@@ -132,7 +132,7 @@ Just one plugin is necessary for processing our SASS files, and that is `gulp-sa
 
 ##### Images
 
-Any images placed within `/app/images` will be automatically copied to the `build/images` directory. If running `gulp prod`, they will also be compressed via imagemin.
+Any images placed within `/app/images` will be automatically copied to the `build/images` directory. If running `npm run build`, they will also be compressed via imagemin.
 
 ##### Views
 
@@ -142,17 +142,17 @@ Files inside `/app/views/`, on the other hand, go through a slightly more comple
 
 ##### Watching files
 
-All of the Gulp processes mentioned above are run automatically when any of the corresponding files in the `/app` directory are changed, and this is thanks to our Gulp watch tasks. Running `gulp dev` will begin watching all of these files, while also serving to `localhost:3002`, and with browser-sync proxy running at `localhost:3000` (by default).
+All of the Gulp processes mentioned above are run automatically when any of the corresponding files in the `/app` directory are changed, and this is thanks to our Gulp watch tasks. Running `npm run dev` will begin watching all of these files, while also serving to `localhost:3002`, and with browser-sync proxy running at `localhost:3000` (by default).
 
 ##### Production Task
 
-Just as there is the `gulp dev` task for development, there is also a `gulp prod` task for putting your project into a production-ready state. This will run each of the tasks, while also adding the image minification task discussed above. There is also an empty `gulp deploy` task that is included when running the production task. This deploy task can be fleshed out to automatically push your production-ready site to your hosting setup.
+Just as there is the `npm run dev` command for development, there is also a `npm run build` command for putting your project into a production-ready state. This will run each of the tasks, while also adding the image minification task discussed above. There is also an empty deploy task (run with `npm run deploy`) that is included when running the production task. This deploy task can be fleshed out to automatically push your production-ready site to your hosting setup.
 
 **Reminder:** When running the production task, gulp will not fire up the express server and serve your index.html. This task is designed to be run before the `deploy` step that may copy the files from `/build` to a production web server.
 
 ##### Pre-compressing text assets
 
-When running with `gulp prod`, a pre-compressed file is generated in addition to uncompressed file (.html.gz, .js.gz, css.gz). This is done to enable web servers serve compressed content without having to compress it on the fly. Pre-compression is handled by `gzip` task.
+When building with `npm run build`, a pre-compressed file is generated in addition to uncompressed file (.html.gz, .js.gz, css.gz). This is done to enable web servers serve compressed content without having to compress it on the fly. Pre-compression is handled by `gzip` task.
 
 ##### Testing
 
@@ -164,7 +164,7 @@ A Gulp tasks also exists for running the test framework (discussed in detail bel
 
 This boilerplate also includes a simple framework for unit and end-to-end (e2e) testing via [Karma](http://karma-runner.github.io/) and [Jasmine](http://jasmine.github.io/). In order to test AngularJS modules, the [angular.mocks](https://docs.angularjs.org/api/ngMock/object/angular.mock) module is used.
 
-All of the tests can be run at once with the command `gulp test`. However, the tests are broken up into two main categories:
+All of the tests can be run at once with the command `npm test`. However, the tests are broken up into two main categories:
 
 ##### End-to-End (e2e) Tests
 
@@ -177,7 +177,7 @@ In this boilerplate, two end-to-end test examples are provided:
 
 More examples can be seen at the above link for Protractor.
 
-All e2e tests are run with `gulp protractor`.
+All e2e tests are run with `npm run protractor`.
 
 ##### Unit Tests
 
@@ -190,4 +190,4 @@ An example test is provided for the following types of AngularJS modules:
 - `unit/directives/example_spec.js`
 - `unit/constants_spec.js`
 
-All unit tests are run with `gulp unit`. When running unit tests, code coverage is simultaneously calculated and output as an HTML file to the `/coverage` directory.
+All unit tests are run with `npm run unit`. When running unit tests, code coverage is simultaneously calculated and output as an HTML file to the `/coverage` directory.
