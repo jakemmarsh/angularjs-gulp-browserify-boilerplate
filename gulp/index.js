@@ -1,5 +1,3 @@
-'use strict';
-
 import fs          from 'fs';
 import gulp        from 'gulp';
 import onlyScripts from './util/scriptFilter';

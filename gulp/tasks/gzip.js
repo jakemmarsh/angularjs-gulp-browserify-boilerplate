@@ -1,5 +1,3 @@
-'use strict';
-
 import config from '../config';
 import gulp   from 'gulp';
 import gzip   from 'gulp-gzip';

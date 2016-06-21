@@ -1,5 +1,3 @@
-'use strict';
-
 import gutil  from 'gulp-util';
 import notify from 'gulp-notify';
 

@@ -1,5 +1,3 @@
-'use strict';
-
 import config     from '../config';
 import testServer from '../util/testServer';
 import gulp       from 'gulp';

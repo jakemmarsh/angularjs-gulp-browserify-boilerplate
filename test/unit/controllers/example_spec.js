@@ -1,5 +1,3 @@
-'use strict';
-
 describe('Unit: ExampleCtrl', function() {
 
   let ctrl;

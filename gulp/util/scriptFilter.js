@@ -1,5 +1,3 @@
-'use strict';
-
 import path from 'path';
 
 // Filters out non .js files. Prevents

@@ -1,5 +1,3 @@
-'use strict';
-
 import express from 'express';
 
 export default function testServer({port, dir}) {

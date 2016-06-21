@@ -1,7 +1,5 @@
 /*global browser, by */
 
-'use strict';
-
 describe('E2E: Example', function() {
 
   beforeEach(function() {

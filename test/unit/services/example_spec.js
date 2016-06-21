@@ -1,5 +1,3 @@
-'use strict';
-
 describe('Unit: ExampleService', function() {
 
   let http, service;

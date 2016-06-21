@@ -1,5 +1,3 @@
-'use strict';
-
 import gulp         from 'gulp';
 import gulpif       from 'gulp-if';
 import source       from 'vinyl-source-stream';
