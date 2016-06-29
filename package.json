@@ -1,12 +1,13 @@
 {
   "name": "angularjs-gulp-browserify-boilerplate",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "author": "Jake Marsh <jakemmarsh@gmail.com>",
   "description": "Boilerplate using AngularJS, SASS, Gulp, and Browserify while also utilizing best practices.",
   "repository": {
     "type": "git",
     "url": "https://github.com/jakemmarsh/angularjs-gulp-browserify-boilerplate.git"
   },
+  "license": "MIT",
   "keywords": [
     "express",
     "gulp",
@@ -21,6 +22,17 @@
   "private": false,
   "engines": {
     "node": "~4.2.x"
+  },
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development ./node_modules/.bin/gulp dev",
+    "build": "cross-env NODE_ENV=production ./node_modules/.bin/gulp prod",
+    "deploy": "cross-env NODE_ENV=production ./node_modules/.bin/gulp deploy",
+    "test": "cross-env NODE_ENV=test ./node_modules/.bin/gulp test",
+    "protractor": "cross-env NODE_ENV=test ./node_modules/.bin/gulp protractor",
+    "unit": "cross-env NODE_ENV=test ./node_modules/.bin/gulp unit"
+  },
+  "dependencies": {
+    "cross-env": "^1.0.8"
   },
   "devDependencies": {
     "angular": "^1.5.0",
@@ -76,14 +88,5 @@
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.7.0"
-  },
-  "scripts": {
-    "dev": "NODE_ENV=development ./node_modules/.bin/gulp dev",
-    "build": "NODE_ENV=production ./node_modules/.bin/gulp prod",
-    "deploy": "NODE_ENV=production ./node_modules/.bin/gulp deploy",
-    "test": "NODE_ENV=test ./node_modules/.bin/gulp test",
-    "protractor": "NODE_ENV=test ./node_modules/.bin/gulp protractor",
-    "unit": "NODE_ENV=test ./node_modules/.bin/gulp unit"
-  },
-  "license": "MIT"
+  }
 }
