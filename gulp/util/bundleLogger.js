@@ -1,5 +1,3 @@
-'use strict';
-
 import gutil        from 'gulp-util';
 import prettyHrtime from 'pretty-hrtime';
 

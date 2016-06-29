@@ -1,5 +1,3 @@
-'use strict';
-
 import config      from '../config';
 import url         from 'url';
 import browserSync from 'browser-sync';

@@ -1,7 +1,5 @@
 /* global module */
 
-'use strict';
-
 describe('Unit: ExampleDirective', function() {
 
   let element;

@@ -1,5 +1,3 @@
-'use strict';
-
 import config        from '../config';
 import gulp          from 'gulp';
 import merge         from 'merge-stream';

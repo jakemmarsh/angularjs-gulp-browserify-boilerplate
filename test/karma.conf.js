@@ -1,5 +1,3 @@
-'use strict';
-
 const istanbul = require('browserify-istanbul');
 const isparta  = require('isparta');
 

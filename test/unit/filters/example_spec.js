@@ -1,5 +1,3 @@
-'use strict';
-
 describe('Unit: ExampleFilter', function() {
 
   let $filter;
