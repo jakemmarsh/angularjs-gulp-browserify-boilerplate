@@ -19,6 +19,9 @@
     "protractor",
     "boilerplate"
   ],
+  "browserify-shim": {
+    "angular": "global:angular"
+  },
   "private": false,
   "engines": {
     "node": "~4.2.x"

@@ -11,8 +11,6 @@ import uglify       from 'gulp-uglify';
 import browserSync  from 'browser-sync';
 import collapser from 'bundle-collapser/plugin';
 import ngAnnotate   from 'browserify-ngannotate';
-import bulkify      from 'bulkify';
-import envify       from 'envify';
 import handleErrors from '../util/handleErrors';
 import bundleLogger from '../util/bundleLogger';
 import config       from '../config';
