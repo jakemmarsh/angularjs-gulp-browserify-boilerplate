@@ -6,12 +6,17 @@ export default {
 
   sourceDir: './app/',
   buildDir: './build/',
+  distDir: './dist/',
 
   styles: {
     src: 'app/styles/**/*.scss',
     dest: 'build/css',
     prodSourcemap: false,
     sassIncludePaths: []
+  },
+  componentViews: {
+    src: ['app/js/components/**/*.html'],
+    dest: 'app/js/components'
   },
 
   scripts: {

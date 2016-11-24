@@ -3,7 +3,7 @@ import path     from 'path';
 import gulp     from 'gulp';
 import {Server} from 'karma';
 
-gulp.task('unit', ['views'], function(cb) {
+gulp.task('unit', ['views', 'componentViews'], function(cb) {
 
   new Server({
     configFile: path.resolve(__dirname, '../..', config.test.karma),
