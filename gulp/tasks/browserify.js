@@ -9,13 +9,12 @@ import browserify   from 'browserify';
 import babelify     from 'babelify';
 import uglify       from 'gulp-uglify';
 import browserSync  from 'browser-sync';
-import debowerify   from 'debowerify';
+import collapser from 'bundle-collapser/plugin';
 import ngAnnotate   from 'browserify-ngannotate';
-import bulkify      from 'bulkify';
-import envify       from 'envify';
 import handleErrors from '../util/handleErrors';
 import bundleLogger from '../util/bundleLogger';
 import config       from '../config';
+import browserifyShim   from 'browserify-shim';
 
 // Based on: http://blog.avisi.nl/2014/04/25/how-to-keep-a-fast-build-with-browserify-and-reactjs/
 function buildScript(file) {
@@ -29,6 +28,7 @@ function buildScript(file) {
     packageCache: {},
     fullPaths: !global.isProd
   });
+  bundler.plugin(collapser);
 
   if ( !global.isProd ) {
     bundler = watchify(bundler);
@@ -37,12 +37,11 @@ function buildScript(file) {
   }
 
   const transforms = [
-    { name: babelify, options: {} },
-    { name: debowerify, options: {} },
-    { name: ngAnnotate, options: {} },
-    { name: 'brfs', options: {} },
-    { name: bulkify, options: {} },
-    { name: envify, options: {} }
+    {'name': browserifyShim, 'options': {global: true}},
+    {'name': babelify, 'options': {}},
+    {'name': ngAnnotate, 'options': {}},
+    {'name': 'brfs', 'options': {}},
+    {'name': 'bulkify', 'options': {}}
   ];
 
   transforms.forEach(function(transform) {
