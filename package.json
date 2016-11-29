@@ -1,12 +1,7 @@
 {
   "name": "angularjs-gulp-browserify-boilerplate",
   "version": "1.7.1",
-  "author": "Jake Marsh <jakemmarsh@gmail.com>",
   "description": "Boilerplate using AngularJS, SASS, Gulp, and Browserify while also utilizing best practices.",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jakemmarsh/angularjs-gulp-browserify-boilerplate.git"
-  },
   "license": "UNLICENSED",
   "keywords": [
     "express",
@@ -22,6 +17,12 @@
   "browserify-shim": {
     "angular": "global:angular"
   },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "main": "dist/index.js",
   "private": false,
   "engines": {
     "node": "~4.2.x"
