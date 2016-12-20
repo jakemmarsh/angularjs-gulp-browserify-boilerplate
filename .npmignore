@@ -20,7 +20,6 @@ build/Release
 
 # Dependency directories
 node_modules
-bower_components
 
 # Build files
 build

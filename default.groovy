@@ -48,8 +48,8 @@ def CreateCompileJob(thisJob){
     steps{
       powerShell("npm i")
       powerShell("npm update")
+      powerShell("gulp unit")
       powerShell("gulp dist")
-      powerShell('gulp unit')
       powerShell("npm publish")
     }
     publishers {
