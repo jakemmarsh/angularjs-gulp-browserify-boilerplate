@@ -8,10 +8,10 @@ const karmaBaseConfig = {
 
   singleRun: true,
 
-  frameworks: ['jasmine', 'browserify'],
+  frameworks: ['jasmine', 'browserify', 'es5-shim'],
 
   preprocessors: {
-    'app/js/**/*.js': ['browserify', 'coverage'],
+    'src/component/**/*.js': ['browserify', 'coverage'],
     'test/**/*.js': ['browserify']
   },
 
@@ -27,12 +27,13 @@ const karmaBaseConfig = {
   autoWatch: true,
 
   browserify: {
-    debug: true,
+    debug: false,
     extensions: ['.js'],
     transform: [
       'babelify',
       'browserify-ngannotate',
       'bulkify',
+      'browserify-shim',
       istanbul({
         instrumenter: isparta,
         ignore: ['**/node_modules/**', '**/test/**']
@@ -51,8 +52,8 @@ const karmaBaseConfig = {
     'node_modules/babel-polyfill/dist/polyfill.js',
     'node_modules/angular/angular.js',
 
-    // app-specific code
-    'app/js/main.js',
+    //Component's root
+    'src/component/index.js',
 
     // 3rd-party resources
     'node_modules/angular-mocks/angular-mocks.js',
