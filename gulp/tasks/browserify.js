@@ -6,15 +6,12 @@ import buffer       from 'vinyl-buffer';
 import streamify    from 'gulp-streamify';
 import watchify     from 'watchify';
 import browserify   from 'browserify';
-import babelify     from 'babelify';
 import uglify       from 'gulp-uglify';
 import browserSync  from 'browser-sync';
 import collapser from 'bundle-collapser/plugin';
-import ngAnnotate   from 'browserify-ngannotate';
 import handleErrors from '../util/handleErrors';
 import bundleLogger from '../util/bundleLogger';
 import config       from '../config';
-import browserifyShim   from 'browserify-shim';
 
 // Based on: http://blog.avisi.nl/2014/04/25/how-to-keep-a-fast-build-with-browserify-and-reactjs/
 function buildScript(file) {
@@ -22,7 +19,7 @@ function buildScript(file) {
   const shouldCreateSourcemap = !global.isProd || config.browserify.prodSourcemap;
 
   let bundler = browserify({
-    entries: [config.sourceDir + 'js/' + file],
+    entries: [config.sourceDir + 'demo/' + file],
     debug: shouldCreateSourcemap,
     cache: {},
     packageCache: {},
@@ -35,18 +32,6 @@ function buildScript(file) {
 
     bundler.on('update', rebundle);
   }
-
-  const transforms = [
-    {'name': browserifyShim, 'options': {global: true}},
-    {'name': babelify, 'options': {}},
-    {'name': ngAnnotate, 'options': {}},
-    {'name': 'brfs', 'options': {}},
-    {'name': 'bulkify', 'options': {}}
-  ];
-
-  transforms.forEach(function(transform) {
-    bundler.transform(transform.name, transform.options);
-  });
 
   function rebundle() {
     bundleLogger.start();
