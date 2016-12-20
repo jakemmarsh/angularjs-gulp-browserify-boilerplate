@@ -9,7 +9,7 @@ gulp.task('componentViews', function() {
   const views = gulp.src(config.componentViews.src)
     .pipe(templateCache({
       standalone: true,
-      module: 'template'
+      module: config.componentViews.templateName
     }))
     .pipe(gulp.dest(config.componentViews.dest));
 
