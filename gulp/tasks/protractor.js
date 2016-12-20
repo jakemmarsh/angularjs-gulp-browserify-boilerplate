@@ -10,7 +10,7 @@ import {
 gulp.task('webdriverUpdate', webdriver_update);
 gulp.task('webdriver', webdriver);
 
-gulp.task('protractor', ['prod', 'webdriverUpdate', 'webdriver'], function(cb) {
+gulp.task('protractor', ['componentViews', 'webdriverUpdate', 'webdriver'], function(cb) {
 
   const testFiles = gulp.src('test/e2e/**/*.js');
 

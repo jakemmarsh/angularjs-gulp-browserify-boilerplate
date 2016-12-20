@@ -20,14 +20,10 @@ build/Release
 
 # Dependency directories
 node_modules
-bower_components
 
 # Build files
 build
-dist
 templates.js
 
 #webstorm
 .idea
-test-results.xml
-*.js.html

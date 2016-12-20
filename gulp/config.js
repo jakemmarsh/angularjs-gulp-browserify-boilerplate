@@ -4,30 +4,31 @@ export default {
   UIPort: 3001,
   testPort: 3002,
 
-  sourceDir: './app/',
+  sourceDir: './src/',
   buildDir: './build/',
+  distDir: './dist/',
 
   styles: {
-    src: 'app/styles/**/*.scss',
+    src: 'src/demo/styles/**/*.scss',
     dest: 'build/css',
     prodSourcemap: false,
     sassIncludePaths: []
   },
+  componentViews: {
+    src: ['src/component/**/*.html'],
+    templateName: 'gsf.example-component.tpls',
+    dest: 'src/component'
+  },
 
   scripts: {
-    src: 'app/js/**/*.js',
+    src: 'src/**/*.js',
     dest: 'build/js',
     test: 'test/**/*.js',
     gulp: 'gulp/**/*.js'
   },
 
-  images: {
-    src: 'app/images/**/*',
-    dest: 'build/images'
-  },
-
   fonts: {
-    src: ['app/fonts/**/*'],
+    src: [],
     dest: 'build/fonts'
   },
 
@@ -46,9 +47,9 @@ export default {
   ],
 
   views: {
-    index: 'app/index.html',
-    src: 'app/views/**/*.html',
-    dest: 'app/js'
+    index: 'src/demo/index.html',
+    src: 'src/**/*.html',
+    dest: 'src/demo'
   },
 
   gzip: {

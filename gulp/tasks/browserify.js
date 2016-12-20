@@ -6,13 +6,9 @@ import buffer       from 'vinyl-buffer';
 import streamify    from 'gulp-streamify';
 import watchify     from 'watchify';
 import browserify   from 'browserify';
-import babelify     from 'babelify';
 import uglify       from 'gulp-uglify';
 import browserSync  from 'browser-sync';
-import debowerify   from 'debowerify';
-import ngAnnotate   from 'browserify-ngannotate';
-import bulkify      from 'bulkify';
-import envify       from 'envify';
+import collapser from 'bundle-collapser/plugin';
 import handleErrors from '../util/handleErrors';
 import bundleLogger from '../util/bundleLogger';
 import config       from '../config';
@@ -23,31 +19,19 @@ function buildScript(file) {
   const shouldCreateSourcemap = !global.isProd || config.browserify.prodSourcemap;
 
   let bundler = browserify({
-    entries: [config.sourceDir + 'js/' + file],
+    entries: [config.sourceDir + 'demo/' + file],
     debug: shouldCreateSourcemap,
     cache: {},
     packageCache: {},
     fullPaths: !global.isProd
   });
+  bundler.plugin(collapser);
 
   if ( !global.isProd ) {
     bundler = watchify(bundler);
 
     bundler.on('update', rebundle);
   }
-
-  const transforms = [
-    { name: babelify, options: {} },
-    { name: debowerify, options: {} },
-    { name: ngAnnotate, options: {} },
-    { name: 'brfs', options: {} },
-    { name: bulkify, options: {} },
-    { name: envify, options: {} }
-  ];
-
-  transforms.forEach(function(transform) {
-    bundler.transform(transform.name, transform.options);
-  });
 
   function rebundle() {
     bundleLogger.start();

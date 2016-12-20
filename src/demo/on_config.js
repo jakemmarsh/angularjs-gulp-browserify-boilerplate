@@ -5,16 +5,13 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
     $compileProvider.debugInfoEnabled(false);
   }
 
-  $locationProvider.html5Mode({
-    enabled: true,
-    requireBase: false
-  });
+  $locationProvider.html5Mode(false);
 
   $stateProvider
   .state('Home', {
     url: '/',
-    controller: 'ExampleCtrl as home',
-    templateUrl: 'home.html',
+    controller: 'DemoCtrl as vm',
+    templateUrl: 'demo/demo.html',
     title: 'Home'
   });
 
