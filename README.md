@@ -1,6 +1,6 @@
 angularjs-gulp-browserify-boilerplate
 =====================================
-**:exclamation: Warning: This repo is no longer maintained and I would not recommend starting a new project with it.**
+**:exclamation: Warning: This boilerplate is no longer maintained and I would not recommend starting a new project with it.**
 
 ---
 
